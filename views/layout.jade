@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet" ,href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css")
+    link(rel="stylesheet" , href="style.css")
+
+  body
+    script(src="http://libs.baidu.com/jquery/1.9.0/jquery.js")
+    script(src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js")
+    ul#myTab.nav.nav-tabs(role="tablist")
+      li.active
+        a(href="#bulletin",role="tab" , data-toggle="tab") 公告
+      li
+        a(href="#rule" ,role="tab" ,data-toggle="tab") 规则
+      li
+        a(href="#forum" ,role="tab" ,data-toggle="tab") 论坛
+
+    div#myTabContent.tab-content
+      div#bulletin.tab-pane.fade.in.active 公告内容面板
+      div#rule.tab-pane.fade 规则内容面板
+      div#forum.tab-pane.fade 论坛内容面板
+    div
+      h1 ----
+    p Welcome to #{title}

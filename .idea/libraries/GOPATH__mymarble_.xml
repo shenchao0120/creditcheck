@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="GOPATH &lt;mymarble&gt;">
+    <CLASSES>
+      <root url="file://$USER_HOME$/Documents/Gofiles/src/gopkg.in" />
+      <root url="file://$USER_HOME$/Documents/Gofiles/src/github.com" />
+      <root url="file://$USER_HOME$/Documents/Gofiles/src/chaoshen.com" />
+      <root url="file://$USER_HOME$/Documents/Gofiles/src/qiniupkg.com" />
+    </CLASSES>
+    <SOURCES>
+      <root url="file://$USER_HOME$/Documents/Gofiles/src/gopkg.in" />
+      <root url="file://$USER_HOME$/Documents/Gofiles/src/github.com" />
+      <root url="file://$USER_HOME$/Documents/Gofiles/src/chaoshen.com" />
+      <root url="file://$USER_HOME$/Documents/Gofiles/src/qiniupkg.com" />
+    </SOURCES>
+    <excluded>
+      <root url="file://$PROJECT_DIR$" />
+    </excluded>
+  </library>
+</component>
