@@ -20,6 +20,12 @@
 					"chaincodeQuery": true,
 					"ledgerQuery": true,
 					"eventSource": true
+				},
+				"fabric-peer-org1-30702a": {
+					"endorsingPeer": true,
+					"chaincodeQuery": true,
+					"ledgerQuery": true,
+					"eventSource": true
 				}
 			},
 			"chaincodes": {

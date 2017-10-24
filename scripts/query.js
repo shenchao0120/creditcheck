@@ -25,11 +25,14 @@ if (args[0]) {
 var helper = require(path.join(__dirname, '../utils/helper.js'))(config_file, logger);			//set the config file name here
 var fcw = require(path.join(__dirname, '../utils/fc_wrangler/index.js'))({ block_delay: helper.getBlockDelay() }, logger);
 
+var marblesapi=require(path.join(__dirname,'../utils/marbles_api.js'))(fcw,helper,logger)
 console.log('---------------------------------------');
 logger.info('Lets query marble chaincode -', helper.getChaincodeId(), helper.getChaincodeVersion());
 console.log('---------------------------------------');
 
 logger.info('First we enroll');
+
+/*
 fcw.enrollWithAdminCert(helper.makeEnrollmentOptionsUsingCert(), function (enrollErr, enrollResp) {
     if (enrollErr != null) {
         logger.error('error enrolling', enrollErr, enrollResp);
@@ -37,14 +40,25 @@ fcw.enrollWithAdminCert(helper.makeEnrollmentOptionsUsingCert(), function (enrol
         console.log('---------------------------------------');
         logger.info('Now we install');
         console.log('---------------------------------------');
+        console.log(enrollResp)
 
 
     }
 });
+*/
 
-function read_everything() {
-    const channel=helper.getChaincodeId();
-    const first_peer=helper.getFirstPeerName(channel)
-    
+marblesapi.enroll_admin(1,function (errcode,enrollObj) {
+    if (errcode!=null){
+        logger.error(errcode)
+    }
+    else {
+        console.log(enrollObj)
+        marblesapi.read_everything()
 
-}
+    }
+})
+
+
+
+
+

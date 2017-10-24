@@ -1,14 +1,17 @@
 {
-	"name": "Container Service Network",
+	"name": "Docker Compose Network",
 	"x-networkId": "not-important",
 	"x-type": "hlfv1",
-	"description": "Connection Profile for an IBM Blockchain Network on the container service",
+	"description": "Connection Profile for an Hyperledger Fabric network on a local machine",
 	"version": "1.0.0",
 	"client": {
-		"organization": "Org1MSP"
+		"organization": "Org1MSP",
+		"credentialStore": {
+			"path": "./crypto/prebaked"
+		}
 	},
 	"channels": {
-		"channel1": {
+		"mychannel": {
 			"orderers": [
 				"fabric-orderer"
 			],
@@ -21,7 +24,7 @@
 				}
 			},
 			"chaincodes": {
-				"marbles": "v1.0"
+				"marbles": "v4"
 			},
 			"x-blockDelay": 10000
 		}
@@ -30,43 +33,43 @@
 		"Org1MSP": {
 			"mspid": "Org1MSP",
 			"peers": [
-				"blockchain-org1peer1"
+				"fabric-peer-org1"
 			],
 			"certificateAuthorities": [
-				"blockchain-ca"
+				"fabric-ca"
 			],
 			"adminPrivateKey": {
-				"path": "org1_admin_key.pem"
+				"path": "./crypto/prebaked/cd96d5260ad4757551ed4a5a991e62130f8008a0bf996e4e4b84cd097a747fec-priv"
 			},
 			"signedCert": {
-				"path": "org1_admin_cert.pem"
+				"path": "./crypto/prebaked/PeerAdminCert.pem"
 			}
 		}
 	},
 	"orderers": {
 		"fabric-orderer": {
-			"url": "grpc://blockchain-orderer:31010"
+			"url": "grpc://114.115.223.84:7050"
 		}
 	},
 	"peers": {
-		"blockchain-org1peer1": {
-			"url": "grpc://blockchain-org1peer1:5010",
-			"eventUrl": "grpc://blockchain-org1peer1:5011"
+		"fabric-peer-org1": {
+			"url": "grpc://114.115.223.84:7051",
+			"eventUrl": "grpc://114.115.223.84:7053"
 		}
 	},
 	"certificateAuthorities": {
-		"blockchain-ca": {
-			"url": "http://blockchain-ca:7054",
+		"fabric-ca": {
+			"url": "http://114.115.223.84:7054",
 			"httpOptions": {
 				"verify": true
 			},
 			"registrar": [
 				{
-					"enrollId": "admin",
-					"enrollSecret": "adminpw"
+					"enrollId": "PeerAdmin",
+					"enrollSecret": "-"
 				}
 			],
-			"caName": "CA1"
+			"caName": null
 		}
 	}
 }

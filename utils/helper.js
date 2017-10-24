@@ -11,7 +11,7 @@ module.exports = function (config_filename, logger) {
 
 	// default config file name
 	if (!config_filename) {
-		config_filename = 'marbles_tls.json';
+		config_filename = 'marbles_local.json';
 	}
 
 	helper.config_path = path.join(__dirname, '../config/' + config_filename);
@@ -544,6 +544,7 @@ module.exports = function (config_filename, logger) {
 			kvs_path: helper.getKvsPath()
 		};
 	};
+
 
 	// write new settings
 	helper.write = function (obj) {
