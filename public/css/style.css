@@ -6,3 +6,16 @@ body {
 a {
   color: #00B7FF;
 }
+
+.login-img3-body{
+  background: url('../imgs/bg-1.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.login-img3-body .login-form{
+  border: 1px solid #B0B6BE;
+  background: rgba(213,215,222,0.9);
+}

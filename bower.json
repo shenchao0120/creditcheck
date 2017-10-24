@@ -1,0 +1,22 @@
+{
+  "name": "y",
+  "description": "",
+  "main": "",
+  "authors": [
+    "shenchao0120 <shenchao0120@163.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/shenchao0120/mymarble",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "handlebars": "^4.0.11",
+    "bootstrap": "^3.3.7"
+  }
+}
