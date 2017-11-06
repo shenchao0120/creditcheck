@@ -1,22 +1,58 @@
 extends ./template/commonlayout
 
-block content
-    .container
-        .row
-            .col-md-offset-3.col-md-6
-                form.form-horizontal(method="post")
-                    span.heading 用户登录
 
-                    .form-group
-                        input(type="email" class="form-control" id="inputEmail" placeholder="用户名或电子邮件")
-                        i.fa.fa-user
-                    .form-group
-                        input(type="password" class="form-control" id="inputPassword" placeholder="密码")
-                        i.fa.fa-user
-                    .form-group
-                        .main-checkbox
-                            input(type="checkbox" value="None" id="checkbox1" name="check")
-                            label(for="checkbox1")
-                        span Remember me
-                        button.btn.btn-default(type="submit") 登录
+block content
+    body.login-img3-body
+
+    h1.text-center
+        p 渤海银行区块链演示系统
+    .container
+        form.login-form( id="userform")
+            .login-wrap
+                p.login-img
+                    i.icon_lock_alt
+                .input-group
+                    span.input-group-addon
+                        i.icon_profile
+                    input.form-control(type="text" placeholder="用户名"  name="username" autofocus )
+
+                .input-group
+                    span.input-group-addon
+                        i.icon_key_alt
+                    input.form-control(type="password" placeholder="密码" name="password" )
+                p
+                    span.text_center#warningtext(style="color:red ;display:none;text-align: center" )
+                label.checkbox(style="padding-left: 20px")
+                    input(type="checkbox" value="remember-me")
+                    | 记住我
+                    span.pull-right
+                        a(herf="#") 忘记密码?
+
+                input.btn.btn-primary.btn-lg.btn-block(type="Button" name='login' onclick="check(this)" value="登录")
+                input.btn.btn-lg.btn-block(type="Button" name='signup' onclick="check(this)" value="注册")
+        script.
+            function check(obj)
+                     {
+                         $.ajax({
+                             url:obj.name,
+                             type:'POST',
+                             async:true,
+                             data:{
+                                    username:$("input[ name='username' ] ").val(),
+                                    password:$("input[ name='password' ] ").val(),
+                                  },
+                             success: function (data,textStatus,jqXHR) {
+                                 if (data.status != '0') {
+                                     $("#warningtext").text(data.msg).show();
+
+                                 }else{
+                                     console.log('redirect');
+                                     window.location.href=data.path;
+                                     return false;
+                                 }
+                             },
+                         });
+                     }
+
+
 

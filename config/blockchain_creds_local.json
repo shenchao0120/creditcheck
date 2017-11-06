@@ -48,18 +48,18 @@
 	},
 	"orderers": {
 		"fabric-orderer": {
-			"url": "grpc://114.115.223.84:7050"
+			"url": "grpc://116.196.112.180:7050"
 		}
 	},
 	"peers": {
 		"fabric-peer-org1": {
-			"url": "grpc://114.115.223.84:7051",
-			"eventUrl": "grpc://114.115.223.84:7053"
+			"url": "grpc://116.196.112.180:7051",
+			"eventUrl": "grpc://116.196.112.180:7053"
 		}
 	},
 	"certificateAuthorities": {
 		"fabric-ca": {
-			"url": "http://114.115.223.84:7054",
+			"url": "http://116.196.112.180:7054",
 			"httpOptions": {
 				"verify": true
 			},

@@ -1,14 +1,33 @@
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
-var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var Cookies = require('cookies');                // cookies模块
 
-var index = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
+
+var cors = require('cors');
+var async = require('async');
+var ws = require('ws');											//websocket module
+var winston = require('winston');
+
+// --- Get Our Modules --- //
+var logger = new (winston.Logger)({
+    level: 'debug',
+    transports: [
+        new (winston.transports.Console)({ colorize: true }),
+    ]
+});
+
+process.env.creds_filename='marbles_local.json';
+
+var configer=require(__dirname+'/utils/cfg_loader.js')('blockchain_creds_local.json',logger);
+
+require(__dirname+'/utils/cc_cfg_loader.js')(configer,process.env.creds_filename,logger);
+
+var fcw=require(__dirname+'/utils/fc_wrapper/index.js')({ block_delay: configer.getBlockDelay() }, logger);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -16,14 +35,49 @@ app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/public',express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/users', users);
+app.options('*', cors());
+app.use(cors());
+
+
+var sqlServices=require(__dirname+'/db/sqlutils.js')(configer,logger);
+
+app.sqlServices=sqlServices;
+app.logger=logger;
+
+//验证是否已经登录
+
+app.use(function (req, res, next) {
+    req.cookies = new Cookies(req, res);
+    req.userInfo = {}
+    console.log('userinfo'+req.cookies.get('userInfo'));
+    if  (req.cookies.get('userInfo') &&req.cookies.get('userInfo').length!=0) {
+        try {
+            req.userInfo = JSON.parse(req.cookies.get('userInfo'));
+            // 获取当前登录用户类型,是不是管理员
+            sqlServices.isUserExisted(req.userInfo.user_id).then((obj)=>{
+                req.userInfo.isAdmin=obj.user_type=='0'?true:false;
+                req.userInfo.username=obj.user_loginName;
+                req.userInfo.isLogin=true;
+                next();
+            })
+        } catch (e) {
+            next();
+        }
+    } else {
+        next();
+    }
+});
+
+
+
+// 路由设置
+app.use('/', require('./routes/index'));
+app.use('/users', require('./routes/users'));
 
 
 // catch 404 and forward to error handler
@@ -32,6 +86,8 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
+logger.info("test the logger");
 
 
 // error handler
@@ -44,5 +100,199 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+let config_error = configer.checkConfig();
+
+// ============================================================================================================================
+// 								Default http server manipulation
+// ============================================================================================================================
+var debug = require('debug')('mymarble:server');
+var http = require('http');
+/**
+ * Get port from environment and store in Express.
+ */
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+/**
+ * Create HTTP server.
+ */
+var server = http.createServer(app);
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+/**
+ * Normalize a port into a number, string, or false.
+ */
+function normalizePort(val) {
+    var port = parseInt(val, 10);
+    if (isNaN(port)) {
+        // named pipe
+        return val;
+    }
+    if (port >= 0) {
+        // port number
+        return port;
+    }
+    return false;
+}
+/**
+ * Event listener for HTTP server "error" event.
+ */
+function onError(error) {
+    if (error.syscall !== 'listen') {
+        throw error;
+    }
+    var bind = typeof port === 'string'
+        ? 'Pipe ' + port
+        : 'Port ' + port;
+
+    // handle specific listen errors with friendly messages
+    switch (error.code) {
+        case 'EACCES':
+            console.error(bind + ' requires elevated privileges');
+            process.exit(1);
+            break;
+        case 'EADDRINUSE':
+            console.error(bind + ' is already in use');
+            process.exit(1);
+            break;
+        default:
+            throw error;
+    }
+}
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+function onListening() {
+    var addr = server.address();
+    var bind = typeof addr === 'string'
+        ? 'pipe ' + addr
+        : 'port ' + addr.port;
+    logger.info('Listening on ' + bind);
+}
+
+
+// ============================================================================================================================
+// 														Launch Webserver
+// ============================================================================================================================
+
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+process.env.NODE_ENV = 'Testing';
+server.timeout = 240000;																							// Ta-da.
+var host='localhost';
+
+console.log('\n');
+console.log('----------------------------------- Server Up - ' + host + ':' + port + ' -----------------------------------');
+process.on('uncaughtException', function (err) {
+    logger.error('Caught exception: ', err.stack);		//demos never give up
+    if (err.stack.indexOf('EADDRINUSE') >= 0) {			//except for this error
+        logger.warn('---------------------------------------------------------------');
+        logger.warn('----------------------------- Ah! -----------------------------');
+        logger.warn('---------------------------------------------------------------');
+        logger.error('You already have something running on port ' + port + '!');
+        logger.error('Kill whatever is running on that port OR change the port setting in your  config file: ' + configer.config_path);
+        process.exit();
+    }
+});
+
+
+var fabricNet=require(__dirname+'/utils/fabric_net_api.js')(fcw,configer,logger);
+
+//enroll_admin
+fabricNet.enroll_admin(2,function (err,obj) {
+
+    if(err==null) {
+        logger.info("get genesis block");
+        //get genesis block
+
+
+        var g_option = configer.makeEnrollmentOptions(0);
+
+        logger.info("g_option" + g_option);
+
+        let tx_id = obj.client.newTransactionID();
+        let g_request = {
+            txId: tx_id
+        };
+        /*
+        obj.channel.queryBlock(1).then(
+            function (block_resp) {
+                logger.info(block_resp);
+            }
+        ).catch(
+
+        );
+        */
+        g_option.peer_url=g_option.peer_urls[0];
+        fcw.query_channel_info(obj,g_option,function (err,data) {
+            if(err!=null){
+                logger.error(err);
+            }else
+            {
+                logger.info(data)
+            }
+        })
+    }
+
+});
+
+
+
+// ------------------------------------------------------------------------------------------------------------------------------
+// beginning webserver
+// ------------------------------------------------------------------------------------------------------------------------------
+
+/*
+ obj.client.queryChannels(obj.channel.getPeers()[0]).then((response)=>{
+ logger.info(response.channels.channel_id);
+ }).catch((err)=>{
+ logger.info(err);
+ });
+
+ function buffer2hexStr(byteArray) {
+ logger.info(byteArray);
+ return byteArray.map(function (byte) {
+ return ('0' + byte.toString(16)).slice(-2);
+ }).join('');
+ }
+ obj.channel.queryInfo().then(
+ function (chain_resp) {
+ chain_resp.currentBlockHash = buffer2hexStr(chain_resp.currentBlockHash.buffer);
+ chain_resp.previousBlockHash = buffer2hexStr(chain_resp.previousBlockHash.buffer);
+ // if (cb) return cb(null, chain_resp);
+ logger.info( chain_resp);
+ logger.info(typeof chain_resp.currentBlockHash, chain_resp.currentBlockHash,chain_resp.previousBlockHash);
+ }
+ ).catch(
+ function (err) {
+ logger.error('[fcw] Error in query block', typeof err, err);
+ var formatted = common.format_error_msg(err);
+
+ if (cb) return cb(formatted, null);
+ else return;
+ }
+ );
+
+ }
+ */
+// get the genesis block from the orderer
+/*
+ obj.channel.getGenesisBlock(g_request).then((block) =>{
+ var genesis_block = block;
+ logger.info("the block:"+block.toString());
+
+
+ })
+ .catch((err)=>{
+ logger.error(err);
+ });
+ }
+ */
+
+
+
 
 module.exports = app;

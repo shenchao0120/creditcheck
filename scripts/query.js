@@ -23,7 +23,7 @@ if (args[0]) {
 }
 
 var helper = require(path.join(__dirname, '../utils/helper.js'))(config_file, logger);			//set the config file name here
-var fcw = require(path.join(__dirname, '../utils/fc_wrangler/index.js'))({ block_delay: helper.getBlockDelay() }, logger);
+var fcw = require(path.join(__dirname, '../utils/fc_wrapper/index.js'))({ block_delay: helper.getBlockDelay() }, logger);
 
 var marblesapi=require(path.join(__dirname,'../utils/marbles_api.js'))(fcw,helper,logger)
 console.log('---------------------------------------');

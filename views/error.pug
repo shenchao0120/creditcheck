@@ -1,18 +1,11 @@
--////////////////////////////////////////////////// HTML //////////////////////////////////////////////////
--//Begin HTML
-doctype html
-html
-    head
-        title title
-        meta(name="viewport" content="initial-scale=1.0, user-scalable=no")
-        link(rel="icon" href="/imgs/favicon.ico" sizes="16x16")
-        link(rel="icon" href="/imgs/favicon-32.png" sizes="32x32")
-        link(rel="icon" href="/imgs/favicon-96.png" sizes="96x96")
-        link(rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css")
-        link(rel="stylesheet" href="/public/css/bootstrap.min.css")
-        link(rel="stylesheet" href="/public/css/main.css")
-        script(src="/public/js/jquery.min.js")
-        script(src="/public/js/bootstrap.min.js")
-    body
-        p
-          span wrong
+extends ./template/layout.pug
+
+block content
+    // --------------- Main Stuff  -------------- //
+    #contentPanel
+
+        h1 Error: #{error.status}
+        center
+            h2 #{error.msg}
+
+        hr
