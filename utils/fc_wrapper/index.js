@@ -157,21 +157,42 @@ module.exports = function (g_options, logger) {
 					},
 		}
 	*/
-	fcw.query_channel_info = function (obj, options, cb_done) {
-		query_peer.query_channel_info(obj, options, function (err, resp) {
-			if (err != null) {											//looks like an error with the request
-				if (ha.switch_peer(obj, options) == null) {				//try another peer
-					logger.info('Retrying query on different peer');
-					fcw.query_channel_info(obj, options, cb_done);
-				} else {
-					if (cb_done) cb_done(err, resp);					//out of peers, give up
-				}
-			} else {													//all good, pass resp back to callback
-				ha.success_peer_position = ha.using_peer_position;		//remember the last good one
-				if (cb_done) cb_done(err, resp);
-			}
-		});
-	};
+    /*
+    fcw.query_channel_info = function (obj, options, cb_done) {
+        query_peer.query_channel_info(obj, options, function (err, resp) {
+            if (err != null) {											//looks like an error with the request
+                if (ha.switch_peer(obj, options) == null) {				//try another peer
+                    logger.info('Retrying query on different peer');
+                    fcw.query_channel_info(obj, options, cb_done);
+                } else {
+                    if (cb_done) cb_done(err, resp);					//out of peers, give up
+                }
+            } else {													//all good, pass resp back to callback
+                ha.success_peer_position = ha.using_peer_position;		//remember the last good one
+                if (cb_done) cb_done(err, resp);
+            }
+        });
+    };
+    */
+	fcw.query_channel_info=function(obj,options) {
+        return new Promise(function(resolve, reject){
+            query_peer.query_channel_info(obj, options, function (err, resp) {
+                if (err != null) {
+                    if (ha.switch_peer(obj, options) == null) {
+                        logger.info('Retrying query on different peer');
+                        fcw.query_channel_info(obj.options);
+                    } else {
+                        reject(err);
+                    }
+                } else {
+                    ha.success_ca_position = ha.using_peer_position;
+                    resolve(resp);
+                }
+            });
+        });
+    };
+
+
 
 	// Get list of installed cc's
 	fcw.query_installed_cc = function (obj, options, cb_done) {

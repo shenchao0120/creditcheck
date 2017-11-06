@@ -2,59 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d59148f-05d1-48e3-82c6-bbbdeb076641" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/www" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crypto/History.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crypto/Readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crypto/md5.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crypto/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crypto/sha1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/crypto/test/test-crypto.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/resolve/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/resolve/test/resolver/symlinked/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/resolve/test/resolver/symlinked/_/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/resolve/test/resolver/symlinked/_/node_modules/foo.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/utils/cfg_loader_test.js" afterPath="$PROJECT_DIR$/utils/back/cfg_loader_test.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/utils/fc_wrangler/common.js" afterPath="$PROJECT_DIR$/utils/fc_wrapper/common.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/utils/fc_wrangler/deploy_cc.js" afterPath="$PROJECT_DIR$/utils/fc_wrapper/deploy_cc.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/utils/fc_wrangler/enrollment.js" afterPath="$PROJECT_DIR$/utils/fc_wrapper/enrollment.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/utils/fc_wrangler/high_availability.js" afterPath="$PROJECT_DIR$/utils/fc_wrapper/high_availability.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/utils/fc_wrangler/index.js" afterPath="$PROJECT_DIR$/utils/fc_wrapper/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/utils/fc_wrangler/invoke_cc.js" afterPath="$PROJECT_DIR$/utils/fc_wrapper/invoke_cc.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/utils/fc_wrangler/query_cc.js" afterPath="$PROJECT_DIR$/utils/fc_wrapper/query_cc.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/utils/fc_wrangler/query_peer.js" afterPath="$PROJECT_DIR$/utils/fc_wrapper/query_peer.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/utils/helper.js" afterPath="$PROJECT_DIR$/utils/back/helper.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/utils/marbles_api.js" afterPath="$PROJECT_DIR$/utils/back/marbles_api.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/utils/marbles_cc_lib.js" afterPath="$PROJECT_DIR$/utils/back/marbles_cc_lib.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/utils/misc.js" afterPath="$PROJECT_DIR$/utils/back/misc.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/imgs/bg-1.jpg" afterPath="$PROJECT_DIR$/public/imgs/bg-1.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/mymarble.iml" afterPath="$PROJECT_DIR$/.idea/mymarble.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/blockchain_creds_local.json" afterPath="$PROJECT_DIR$/config/blockchain_creds_local.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/marbles_local.json" afterPath="$PROJECT_DIR$/config/marbles_local.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/async/package.json" afterPath="$PROJECT_DIR$/node_modules/async/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/cors/package.json" afterPath="$PROJECT_DIR$/node_modules/cors/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/fabric-ca-client/lib/FabricCAClientImpl.js" afterPath="$PROJECT_DIR$/node_modules/fabric-ca-client/lib/FabricCAClientImpl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/pug/package.json" afterPath="$PROJECT_DIR$/node_modules/pug/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/resolve/.travis.yml" afterPath="$PROJECT_DIR$/node_modules/resolve/.travis.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/resolve/lib/core.js" afterPath="$PROJECT_DIR$/node_modules/resolve/lib/core.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/resolve/lib/core.json" afterPath="$PROJECT_DIR$/node_modules/resolve/lib/core.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/resolve/package.json" afterPath="$PROJECT_DIR$/node_modules/resolve/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/resolve/readme.markdown" afterPath="$PROJECT_DIR$/node_modules/resolve/readme.markdown" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/resolve/test/core.js" afterPath="$PROJECT_DIR$/node_modules/resolve/test/core.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ws/lib/PerMessageDeflate.js" afterPath="$PROJECT_DIR$/node_modules/ws/lib/PerMessageDeflate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ws/package.json" afterPath="$PROJECT_DIR$/node_modules/ws/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/query.js" afterPath="$PROJECT_DIR$/scripts/query.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/error.pug" afterPath="$PROJECT_DIR$/views/error.pug" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.pug" afterPath="$PROJECT_DIR$/views/index.pug" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/login.pug" afterPath="$PROJECT_DIR$/views/login.pug" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/template/commonlayout.pug" afterPath="$PROJECT_DIR$/views/template/commonlayout.pug" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/fc_wrapper/index.js" afterPath="$PROJECT_DIR$/utils/fc_wrapper/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -66,210 +17,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="228" column="46" lean-forward="true" selection-start-line="228" selection-start-column="46" selection-end-line="228" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="helper.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/back/helper.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="497" column="4" lean-forward="false" selection-start-line="497" selection-start-column="4" selection-end-line="497" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/fc_wrapper/common.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1231">
-              <caret line="78" column="9" lean-forward="false" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="deploy_cc.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/fc_wrapper/deploy_cc.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="91" column="59" lean-forward="true" selection-start-line="91" selection-start-column="59" selection-end-line="91" selection-end-column="59" />
-              <folding>
-                <element signature="e#394#463#0" expanded="false" />
-                <element signature="e#591#972#0" expanded="false" />
-                <element signature="e#1264#1686#0" expanded="false" />
-                <element signature="e#1278#1465#0" expanded="false" />
-                <element signature="e#1316#1463#0" expanded="false" />
-                <element signature="e#2187#2256#0" expanded="false" />
-                <element signature="e#3633#4658#0" expanded="false" />
-                <element signature="e#3726#3880#0" expanded="false" />
-                <element signature="e#3917#4418#0" expanded="false" />
-                <element signature="e#3977#4280#0" expanded="false" />
-                <element signature="e#4204#4265#0" expanded="false" />
-                <element signature="e#4308#4412#0" expanded="false" />
-                <element signature="e#4451#4647#0" expanded="false" />
-                <element signature="e#4667#4736#0" expanded="false" />
-                <element signature="e#4864#5318#0" expanded="false" />
-                <element signature="e#5379#7123#0" expanded="false" />
-                <element signature="e#5636#6006#0" expanded="false" />
-                <element signature="e#5650#5837#0" expanded="false" />
-                <element signature="e#5688#5835#0" expanded="false" />
-                <element signature="e#6100#7118#0" expanded="false" />
-                <element signature="e#6189#6343#0" expanded="false" />
-                <element signature="e#6380#6879#0" expanded="false" />
-                <element signature="e#6440#6742#0" expanded="false" />
-                <element signature="e#6666#6727#0" expanded="false" />
-                <element signature="e#6770#6873#0" expanded="false" />
-                <element signature="e#6912#7107#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cfg_loader.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/cfg_loader.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="432" column="4" lean-forward="false" selection-start-line="432" selection-start-column="4" selection-end-line="432" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="query_peer.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/utils/fc_wrapper/query_peer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="59" column="51" lean-forward="false" selection-start-line="59" selection-start-column="43" selection-end-line="59" selection-end-column="51" />
-              <folding>
-                <element signature="e#691#1168#0" expanded="false" />
-                <element signature="e#889#950#0" expanded="false" />
-                <element signature="e#980#1159#0" expanded="false" />
-                <element signature="e#2838#3063#0" expanded="false" />
-                <element signature="e#2973#3058#0" expanded="false" />
-                <element signature="e#3857#3973#0" expanded="false" />
-                <element signature="e#3996#4115#0" expanded="false" />
-                <element signature="e#4201#4308#0" expanded="false" />
-                <element signature="e#4242#4294#0" expanded="false" />
-                <element signature="e#4311#4330#0" expanded="false" />
-                <element signature="e#4456#6016#0" expanded="false" />
-                <element signature="e#4470#4653#0" expanded="false" />
-                <element signature="e#4483#4629#0" expanded="false" />
-                <element signature="e#4713#5875#0" expanded="false" />
-                <element signature="e#4817#5871#0" expanded="false" />
-                <element signature="e#4858#5550#0" expanded="false" />
-                <element signature="e#4870#5543#0" expanded="false" />
-                <element signature="e#5565#5645#0" expanded="false" />
-                <element signature="e#5888#5955#0" expanded="false" />
-                <element signature="e#6084#6299#0" expanded="false" />
-                <element signature="e#6092#6145#0" expanded="false" />
-                <element signature="e#6156#6296#0" expanded="false" />
-                <element signature="e#6370#6859#0" expanded="false" />
-                <element signature="e#6378#6823#0" expanded="false" />
-                <element signature="e#6482#6819#0" expanded="false" />
-                <element signature="e#6601#6814#0" expanded="false" />
-                <element signature="e#6747#6775#0" expanded="false" />
-                <element signature="e#6781#6808#0" expanded="false" />
-                <element signature="e#6834#6856#0" expanded="false" />
-                <element signature="e#6930#7436#0" expanded="false" />
-                <element signature="e#6938#7311#0" expanded="false" />
-                <element signature="e#7042#7307#0" expanded="false" />
-                <element signature="e#7161#7302#0" expanded="false" />
-                <element signature="e#7322#7433#0" expanded="false" />
-                <element signature="e#7521#7825#0" expanded="false" />
-                <element signature="e#7549#7704#0" expanded="false" />
-                <element signature="e#7613#7700#0" expanded="false" />
-                <element signature="e#7715#7804#0" expanded="false" />
-                <element signature="e#7909#8417#0" expanded="false" />
-                <element signature="e#7917#8293#0" expanded="false" />
-                <element signature="e#8021#8289#0" expanded="false" />
-                <element signature="e#8140#8284#0" expanded="false" />
-                <element signature="e#8304#8414#0" expanded="false" />
-                <element signature="e#8539#10203#0" expanded="false" />
-                <element signature="e#8609#8721#0" expanded="false" />
-                <element signature="e#8732#8823#0" expanded="false" />
-                <element signature="e#8852#9225#0" expanded="false" />
-                <element signature="e#9236#9303#0" expanded="false" />
-                <element signature="e#9349#9455#0" expanded="false" />
-                <element signature="e#9501#9713#0" expanded="false" />
-                <element signature="e#9719#10185#0" expanded="false" />
-                <element signature="e#9758#10061#0" expanded="false" />
-                <element signature="e#9881#9924#0" expanded="false" />
-                <element signature="e#9934#10056#0" expanded="false" />
-                <element signature="e#9962#10034#0" expanded="false" />
-                <element signature="e#10086#10181#0" expanded="false" />
-                <element signature="e#10207#10276#0" expanded="false" />
-                <element signature="e#10378#10591#0" expanded="false" />
-                <element signature="e#10653#11259#0" expanded="false" />
-                <element signature="e#10835#10980#0" expanded="false" />
-                <element signature="e#11004#11043#0" expanded="false" />
-                <element signature="e#11066#11254#0" expanded="false" />
-                <element signature="e#11264#11333#0" expanded="false" />
-                <element signature="e#11438#11458#0" expanded="false" />
-                <element signature="e#11523#11962#0" expanded="false" />
-                <element signature="e#11703#11742#0" expanded="false" />
-                <element signature="e#11765#11957#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="query_cc.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/fc_wrapper/query_cc.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-365">
-              <caret line="17" column="53" lean-forward="false" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="53" />
-              <folding>
-                <element signature="e#219#288#0" expanded="false" />
-                <element signature="e#414#536#0" expanded="false" />
-                <element signature="e#743#909#0" expanded="false" />
-                <element signature="e#1163#1243#0" expanded="false" />
-                <element signature="e#1268#1344#0" expanded="false" />
-                <element signature="e#1665#1732#0" expanded="false" />
-                <element signature="e#1874#3212#0" expanded="false" />
-                <element signature="e#1888#1969#0" expanded="false" />
-                <element signature="e#2066#3195#0" expanded="false" />
-                <element signature="e#2241#2457#0" expanded="false" />
-                <element signature="e#2306#2430#0" expanded="false" />
-                <element signature="e#2466#2838#0" expanded="false" />
-                <element signature="e#2494#2575#0" expanded="false" />
-                <element signature="e#2581#2660#0" expanded="false" />
-                <element signature="e#2852#3191#0" expanded="false" />
-                <element signature="e#2891#3039#0" expanded="false" />
-                <element signature="e#3045#3186#0" expanded="false" />
-                <element signature="e#3340#3587#0" expanded="false" />
-                <element signature="e#3490#3568#0" expanded="false" />
-                <element signature="e#3541#3564#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cc_cfg_loader.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/cc_cfg_loader.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.pug" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/login.pug">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="44" column="41" lean-forward="false" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="41" />
+            <state relative-caret-position="110">
+              <caret line="233" column="13" lean-forward="false" selection-start-line="233" selection-start-column="13" selection-end-line="233" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -278,11 +32,79 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/fc_wrapper/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="159" column="60" lean-forward="false" selection-start-line="159" selection-start-column="53" selection-end-line="159" selection-end-column="60" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="491">
+              <caret line="193" column="0" lean-forward="true" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="module.js" pinned="false" current-in-tab="true">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/6.11.2/core-modules/module.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="413">
+              <caret line="500" column="55" lean-forward="true" selection-start-line="500" selection-start-column="55" selection-end-line="500" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fabric_net_api.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/fabric_net_api.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cc_cfg_loader.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/cc_cfg_loader.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="2" column="3" lean-forward="false" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/api.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1026">
+              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/users.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sqlutils.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/sqlutils.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="584" column="51" lean-forward="false" selection-start-line="584" selection-start-column="45" selection-end-line="584" selection-end-column="51" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -383,9 +205,9 @@
         <option value="$PROJECT_DIR$/utils/fc_wrangler/index.js" />
         <option value="$PROJECT_DIR$/views/login.pug" />
         <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/utils/fc_wrapper/index.js" />
         <option value="$PROJECT_DIR$/utils/fc_wrapper/query_peer.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/utils/fc_wrapper/index.js" />
       </list>
     </option>
   </component>
@@ -403,6 +225,7 @@
     <exe-path />
     <annotation-enable>false</annotation-enable>
     <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
   </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
@@ -411,7 +234,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1366" />
     <option name="height" value="768" />
   </component>
@@ -461,142 +284,50 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mymarble" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mymarble" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mymarble" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mymarble" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mymarble" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mymarble" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mymarble" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mymarble" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mymarble" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mymarble" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fc_wrapper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mymarble" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mymarble" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mymarble" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mymarble" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mymarble" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mymarble" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mymarble" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mymarble" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
+          <expand>
+            <path>
+              <item name="mymarble" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mymarble" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mymarble" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mymarble" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mymarble" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mymarble" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mymarble" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mymarble" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mymarble" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mymarble" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mymarble" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mymarble" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mymarble" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mymarble" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -606,11 +337,11 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v6.11.0/bin/node" />
-    <property name="settings.editor.selected.configurable" value="Settings.JavaScript.Linters.JSHint" />
+    <property name="nodejs_interpreter_path" value="E:/software/node" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
-    <property name="javascript.nodejs.core.library.configured.version" value="6.11.0" />
+    <property name="javascript.nodejs.core.library.configured.version" value="6.11.2" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
     <property name="node.js.path.for.package.jscs" value="project" />
     <property name="node.js.selected.package.jscs" value="" />
@@ -619,7 +350,9 @@
     <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="FullScreen" value="true" />
+    <property name="node.js.detected.package.jscs" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -649,40 +382,12 @@
     </option>
   </component>
   <component name="RunManager" selected="Node.js.app.js">
-    <configuration default="false" name="query.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="$PROJECT_DIR$/scripts/querycar.js" working-dir="$PROJECT_DIR$/scripts">
-      <method />
-    </configuration>
-    <configuration default="false" name="app.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="app.js" working-dir="$PROJECT_DIR$">
-      <method />
-    </configuration>
-    <configuration default="false" name="query.js (1)" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="query.js" working-dir="$PROJECT_DIR$/scripts">
-      <method />
-    </configuration>
-    <configuration default="false" name="www" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="www" working-dir="$PROJECT_DIR$/bin">
-      <method />
-    </configuration>
-    <configuration default="false" name="cfg_loader_test.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="$PROJECT_DIR$/utils/back/cfg_loader_test.js" working-dir="$PROJECT_DIR$/utils">
-      <method />
-    </configuration>
-    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
-      <method />
-    </configuration>
-    <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
-      <method />
-    </configuration>
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="" />
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
-      <filePath value="$PROJECT_DIR$" />
       <kind value="FILE" />
-      <method />
-    </configuration>
-    <configuration default="true" type="GoRunFileConfiguration" factoryName="Go Single File">
-      <module name="mymarble" />
-      <working_directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/" />
-      <method />
+      <filePath value="$PROJECT_DIR$" />
     </configuration>
     <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
       <module name="" />
@@ -690,6 +395,25 @@
       <go_parameters value="-i" />
       <framework value="gotest" />
       <kind value="DIRECTORY" />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
+      <method />
+    </configuration>
+    <configuration default="true" type="GoRunFileConfiguration" factoryName="Go Single File">
+      <module name="mymarble" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
@@ -723,15 +447,6 @@
       <option name="filePath" />
       <method />
     </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
       <command value="run" />
       <scripts />
@@ -752,20 +467,21 @@
       <recursive>false</recursive>
       <method />
     </configuration>
+    <configuration name="app.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="app.js" working-dir="$PROJECT_DIR$" />
+    <configuration name="cfg_loader_test.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="$PROJECT_DIR$/utils/back/cfg_loader_test.js" working-dir="$PROJECT_DIR$/utils" />
+    <configuration name="query.js (1)" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="query.js" working-dir="$PROJECT_DIR$/scripts" />
+    <configuration name="query.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="$PROJECT_DIR$/scripts/querycar.js" working-dir="$PROJECT_DIR$/scripts" />
+    <configuration name="www" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="www" working-dir="$PROJECT_DIR$/bin" />
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Node.js.query.js" />
-      <item index="1" class="java.lang.String" itemvalue="Node.js.app.js" />
-      <item index="2" class="java.lang.String" itemvalue="Node.js.query.js (1)" />
-      <item index="3" class="java.lang.String" itemvalue="Node.js.www" />
-      <item index="4" class="java.lang.String" itemvalue="Node.js.cfg_loader_test.js" />
+      <item index="0" class="java.lang.String" itemvalue="Node.js.app.js" />
+      <item index="1" class="java.lang.String" itemvalue="Node.js.cfg_loader_test.js" />
+      <item index="2" class="java.lang.String" itemvalue="Node.js.query.js" />
+      <item index="3" class="java.lang.String" itemvalue="Node.js.query.js (1)" />
+      <item index="4" class="java.lang.String" itemvalue="Node.js.www" />
     </list>
     <recent_temporary>
-      <list size="5">
+      <list size="1">
         <item index="0" class="java.lang.String" itemvalue="Node.js.app.js" />
-        <item index="1" class="java.lang.String" itemvalue="Node.js.www" />
-        <item index="2" class="java.lang.String" itemvalue="Node.js.cfg_loader_test.js" />
-        <item index="3" class="java.lang.String" itemvalue="Node.js.query.js (1)" />
-        <item index="4" class="java.lang.String" itemvalue="Node.js.query.js" />
       </list>
     </recent_temporary>
   </component>
@@ -789,11 +505,12 @@
       <workItem from="1508859042976" duration="3539000" />
       <workItem from="1508865208603" duration="19395000" />
       <workItem from="1509071696109" duration="61107000" />
+      <workItem from="1510005294605" duration="2724000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141715000" />
+    <option name="totallyTimeSpent" value="144466000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -805,17 +522,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="768" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <layout>
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19851302" sideWeight="0.49266246" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19821429" sideWeight="0.49266246" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3739255" sideWeight="0.5026022" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3739255" sideWeight="0.49739778" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3739046" sideWeight="0.49739778" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19925651" sideWeight="0.5073375" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.4944238" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39971346" sideWeight="0.4944238" order="3" side_tool="false" content_ui="tabs" />
@@ -824,7 +538,9 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -849,7 +565,7 @@
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="processedProjectFiles" value="true" />
+    <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -883,33 +599,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/fabric-client/lib/BlockDecoder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="475" column="76" lean-forward="true" selection-start-line="475" selection-start-column="76" selection-end-line="475" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/fabric-client/lib/Orderer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="56" column="30" lean-forward="false" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/querycar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="42" column="28" lean-forward="false" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-470">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -917,7 +610,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="32" lean-forward="false" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -925,7 +617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -933,7 +624,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
           <caret line="625" column="16" lean-forward="false" selection-start-line="625" selection-start-column="16" selection-end-line="625" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -941,15 +631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="30" column="1800" lean-forward="false" selection-start-line="30" selection-start-column="1787" selection-end-line="30" selection-end-column="1800" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/template/commonlayout.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -957,7 +638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
           <caret line="7295" column="11" lean-forward="false" selection-start-line="7295" selection-start-column="7" selection-end-line="7295" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -965,31 +645,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3008">
           <caret line="1" column="18750" lean-forward="false" selection-start-line="1" selection-start-column="18742" selection-end-line="1" selection-end-column="18750" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="541" lean-forward="false" selection-start-line="0" selection-start-column="541" selection-end-line="0" selection-end-column="541" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.bowerrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/views/login.html" />
     <entry file="file://$PROJECT_DIR$/node_modules/mysql/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -997,7 +660,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="209" column="15" lean-forward="false" selection-start-line="209" selection-start-column="15" selection-end-line="209" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1005,17 +667,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="598">
           <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#45#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1023,7 +674,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
           <caret line="3411" column="97" lean-forward="true" selection-start-line="3411" selection-start-column="97" selection-end-line="3411" selection-end-column="97" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1031,7 +681,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1039,7 +688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1047,7 +695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1055,15 +702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
           <caret line="500" column="16" lean-forward="false" selection-start-line="500" selection-start-column="16" selection-end-line="500" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1071,77 +709,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="165" column="2" lean-forward="false" selection-start-line="165" selection-start-column="2" selection-end-line="165" selection-end-column="20" />
+        <state relative-caret-position="760">
+          <caret line="40" column="12" lean-forward="false" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/template/layout.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="21" lean-forward="false" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/sqlutils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8503">
-          <caret line="630" column="23" lean-forward="true" selection-start-line="630" selection-start-column="23" selection-end-line="630" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/6.11.0/core-modules/crypto.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Documents/Gofiles/src/github.com/hyperledger/fabric/core/chaincode/shim/interfaces.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="41" column="5" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../app demo/KYC_CHAINCODE_GO-master/kyc_chaincode.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-122">
-          <caret line="102" column="54" lean-forward="false" selection-start-line="102" selection-start-column="50" selection-end-line="102" selection-end-column="54" />
-          <folding>
-            <element signature="e#14#111#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/6.11.0/core-modules/crypto.js" />
+    <entry file="file://$USER_HOME$/Documents/Gofiles/src/github.com/hyperledger/fabric/core/chaincode/shim/interfaces.go" />
+    <entry file="file://$PROJECT_DIR$/../../../app demo/KYC_CHAINCODE_GO-master/kyc_chaincode.go" />
     <entry file="file://$PROJECT_DIR$/bower.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="342">
+          <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/fabric_net_api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#45#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1149,7 +735,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-67">
           <caret line="58" column="6" lean-forward="false" selection-start-line="58" selection-start-column="6" selection-end-line="58" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1157,7 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="104" column="8" lean-forward="false" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1173,7 +757,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
           <caret line="23" column="15" lean-forward="false" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1181,9 +764,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1182">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1191,23 +771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
           <caret line="18" column="27" lean-forward="false" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="972">
-          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1215,33 +778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2627">
           <caret line="500" column="22" lean-forward="false" selection-start-line="500" selection-start-column="18" selection-end-line="500" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/fc_wrapper/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="159" column="60" lean-forward="false" selection-start-line="159" selection-start-column="53" selection-end-line="159" selection-end-column="60" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/login.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="44" column="41" lean-forward="false" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/cc_cfg_loader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1249,28 +785,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-365">
           <caret line="17" column="53" lean-forward="false" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="53" />
-          <folding>
-            <element signature="e#219#288#0" expanded="false" />
-            <element signature="e#414#536#0" expanded="false" />
-            <element signature="e#743#909#0" expanded="false" />
-            <element signature="e#1163#1243#0" expanded="false" />
-            <element signature="e#1268#1344#0" expanded="false" />
-            <element signature="e#1665#1732#0" expanded="false" />
-            <element signature="e#1874#3212#0" expanded="false" />
-            <element signature="e#1888#1969#0" expanded="false" />
-            <element signature="e#2066#3195#0" expanded="false" />
-            <element signature="e#2241#2457#0" expanded="false" />
-            <element signature="e#2306#2430#0" expanded="false" />
-            <element signature="e#2466#2838#0" expanded="false" />
-            <element signature="e#2494#2575#0" expanded="false" />
-            <element signature="e#2581#2660#0" expanded="false" />
-            <element signature="e#2852#3191#0" expanded="false" />
-            <element signature="e#2891#3039#0" expanded="false" />
-            <element signature="e#3045#3186#0" expanded="false" />
-            <element signature="e#3340#3587#0" expanded="false" />
-            <element signature="e#3490#3568#0" expanded="false" />
-            <element signature="e#3541#3564#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1278,7 +792,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="432" column="4" lean-forward="false" selection-start-line="432" selection-start-column="4" selection-end-line="432" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1286,34 +799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="91" column="59" lean-forward="true" selection-start-line="91" selection-start-column="59" selection-end-line="91" selection-end-column="59" />
-          <folding>
-            <element signature="e#394#463#0" expanded="false" />
-            <element signature="e#591#972#0" expanded="false" />
-            <element signature="e#1264#1686#0" expanded="false" />
-            <element signature="e#1278#1465#0" expanded="false" />
-            <element signature="e#1316#1463#0" expanded="false" />
-            <element signature="e#2187#2256#0" expanded="false" />
-            <element signature="e#3633#4658#0" expanded="false" />
-            <element signature="e#3726#3880#0" expanded="false" />
-            <element signature="e#3917#4418#0" expanded="false" />
-            <element signature="e#3977#4280#0" expanded="false" />
-            <element signature="e#4204#4265#0" expanded="false" />
-            <element signature="e#4308#4412#0" expanded="false" />
-            <element signature="e#4451#4647#0" expanded="false" />
-            <element signature="e#4667#4736#0" expanded="false" />
-            <element signature="e#4864#5318#0" expanded="false" />
-            <element signature="e#5379#7123#0" expanded="false" />
-            <element signature="e#5636#6006#0" expanded="false" />
-            <element signature="e#5650#5837#0" expanded="false" />
-            <element signature="e#5688#5835#0" expanded="false" />
-            <element signature="e#6100#7118#0" expanded="false" />
-            <element signature="e#6189#6343#0" expanded="false" />
-            <element signature="e#6380#6879#0" expanded="false" />
-            <element signature="e#6440#6742#0" expanded="false" />
-            <element signature="e#6666#6727#0" expanded="false" />
-            <element signature="e#6770#6873#0" expanded="false" />
-            <element signature="e#6912#7107#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1321,7 +806,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1231">
           <caret line="78" column="9" lean-forward="false" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1329,15 +813,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="70">
           <caret line="497" column="4" lean-forward="false" selection-start-line="497" selection-start-column="4" selection-end-line="497" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="228" column="46" lean-forward="true" selection-start-line="228" selection-start-column="46" selection-end-line="228" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1345,75 +820,134 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="59" column="51" lean-forward="false" selection-start-line="59" selection-start-column="43" selection-end-line="59" selection-end-column="51" />
-          <folding>
-            <element signature="e#691#1168#0" expanded="false" />
-            <element signature="e#889#950#0" expanded="false" />
-            <element signature="e#980#1159#0" expanded="false" />
-            <element signature="e#2838#3063#0" expanded="false" />
-            <element signature="e#2973#3058#0" expanded="false" />
-            <element signature="e#3857#3973#0" expanded="false" />
-            <element signature="e#3996#4115#0" expanded="false" />
-            <element signature="e#4201#4308#0" expanded="false" />
-            <element signature="e#4242#4294#0" expanded="false" />
-            <element signature="e#4311#4330#0" expanded="false" />
-            <element signature="e#4456#6016#0" expanded="false" />
-            <element signature="e#4470#4653#0" expanded="false" />
-            <element signature="e#4483#4629#0" expanded="false" />
-            <element signature="e#4713#5875#0" expanded="false" />
-            <element signature="e#4817#5871#0" expanded="false" />
-            <element signature="e#4858#5550#0" expanded="false" />
-            <element signature="e#4870#5543#0" expanded="false" />
-            <element signature="e#5565#5645#0" expanded="false" />
-            <element signature="e#5888#5955#0" expanded="false" />
-            <element signature="e#6084#6299#0" expanded="false" />
-            <element signature="e#6092#6145#0" expanded="false" />
-            <element signature="e#6156#6296#0" expanded="false" />
-            <element signature="e#6370#6859#0" expanded="false" />
-            <element signature="e#6378#6823#0" expanded="false" />
-            <element signature="e#6482#6819#0" expanded="false" />
-            <element signature="e#6601#6814#0" expanded="false" />
-            <element signature="e#6747#6775#0" expanded="false" />
-            <element signature="e#6781#6808#0" expanded="false" />
-            <element signature="e#6834#6856#0" expanded="false" />
-            <element signature="e#6930#7436#0" expanded="false" />
-            <element signature="e#6938#7311#0" expanded="false" />
-            <element signature="e#7042#7307#0" expanded="false" />
-            <element signature="e#7161#7302#0" expanded="false" />
-            <element signature="e#7322#7433#0" expanded="false" />
-            <element signature="e#7521#7825#0" expanded="false" />
-            <element signature="e#7549#7704#0" expanded="false" />
-            <element signature="e#7613#7700#0" expanded="false" />
-            <element signature="e#7715#7804#0" expanded="false" />
-            <element signature="e#7909#8417#0" expanded="false" />
-            <element signature="e#7917#8293#0" expanded="false" />
-            <element signature="e#8021#8289#0" expanded="false" />
-            <element signature="e#8140#8284#0" expanded="false" />
-            <element signature="e#8304#8414#0" expanded="false" />
-            <element signature="e#8539#10203#0" expanded="false" />
-            <element signature="e#8609#8721#0" expanded="false" />
-            <element signature="e#8732#8823#0" expanded="false" />
-            <element signature="e#8852#9225#0" expanded="false" />
-            <element signature="e#9236#9303#0" expanded="false" />
-            <element signature="e#9349#9455#0" expanded="false" />
-            <element signature="e#9501#9713#0" expanded="false" />
-            <element signature="e#9719#10185#0" expanded="false" />
-            <element signature="e#9758#10061#0" expanded="false" />
-            <element signature="e#9881#9924#0" expanded="false" />
-            <element signature="e#9934#10056#0" expanded="false" />
-            <element signature="e#9962#10034#0" expanded="false" />
-            <element signature="e#10086#10181#0" expanded="false" />
-            <element signature="e#10207#10276#0" expanded="false" />
-            <element signature="e#10378#10591#0" expanded="false" />
-            <element signature="e#10653#11259#0" expanded="false" />
-            <element signature="e#10835#10980#0" expanded="false" />
-            <element signature="e#11004#11043#0" expanded="false" />
-            <element signature="e#11066#11254#0" expanded="false" />
-            <element signature="e#11264#11333#0" expanded="false" />
-            <element signature="e#11438#11458#0" expanded="false" />
-            <element signature="e#11523#11962#0" expanded="false" />
-            <element signature="e#11703#11742#0" expanded="false" />
-            <element signature="e#11765#11957#0" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/btzero_15_NiceAdmin/btzero_15_NiceAdmin/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="49" column="20" lean-forward="false" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/login.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/template/layout.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="7" lean-forward="false" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/template/commonlayout.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/vendor/handlebars/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="37" lean-forward="false" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.bowerrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="19" lean-forward="false" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/fabric_net_api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1026">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/cc_cfg_loader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="3" lean-forward="false" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/sqlutils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="584" column="51" lean-forward="false" selection-start-line="584" selection-start-column="45" selection-end-line="584" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="233" column="13" lean-forward="false" selection-start-line="233" selection-start-column="13" selection-end-line="233" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/fc_wrapper/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="193" column="0" lean-forward="true" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/6.11.2/core-modules/module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="500" column="55" lean-forward="true" selection-start-line="500" selection-start-column="55" selection-end-line="500" selection-end-column="55" />
+          <folding />
         </state>
       </provider>
     </entry>

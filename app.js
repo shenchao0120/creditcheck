@@ -227,14 +227,14 @@ fabricNet.enroll_admin(2,function (err,obj) {
         );
         */
         g_option.peer_url=g_option.peer_urls[0];
-        fcw.query_channel_info(obj,g_option,function (err,data) {
+        fcw.query_channel_info(obj,g_option).then( (err,data)=> {
             if(err!=null){
                 logger.error(err);
             }else
             {
-                logger.info(data)
+                logger.info(data);
             }
-        })
+        });
     }
 
 });
