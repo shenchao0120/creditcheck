@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -23,9 +25,9 @@ var logger = new (winston.Logger)({
 
 process.env.creds_filename='marbles_local.json';
 
-var configer=require(__dirname+'/utils/cfg_loader.js')('blockchain_creds_local.json',logger);
+//var configer=require(__dirname+'/utils/cfg_loader.js')('blockchain_creds_local.json',logger);
 
-require(__dirname+'/utils/cc_cfg_loader.js')(configer,process.env.creds_filename,logger);
+var configer=require(__dirname+'/utils/cc_cfg_loader.js')('blockchain_creds_local.json',process.env.creds_filename,logger);
 
 var fcw=require(__dirname+'/utils/fc_wrapper/index.js')({ block_delay: configer.getBlockDelay() }, logger);
 
@@ -54,7 +56,7 @@ app.logger=logger;
 app.use(function (req, res, next) {
     req.cookies = new Cookies(req, res);
     req.userInfo = {}
-    console.log('userinfo'+req.cookies.get('userInfo'));
+    //console.log('userinfo'+req.cookies.get('userInfo'));
     if  (req.cookies.get('userInfo') &&req.cookies.get('userInfo').length!=0) {
         try {
             req.userInfo = JSON.parse(req.cookies.get('userInfo'));
@@ -76,8 +78,14 @@ app.use(function (req, res, next) {
 
 
 // 路由设置
+
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
+
+app.use('/inner', require('./routes/innerinfo'));
+
+app.use('/chain', require('./routes/chainOperation'));
+
 
 
 // catch 404 and forward to error handler
@@ -95,10 +103,9 @@ app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('404');
 });
 
 let config_error = configer.checkConfig();
@@ -106,7 +113,7 @@ let config_error = configer.checkConfig();
 // ============================================================================================================================
 // 								Default http server manipulation
 // ============================================================================================================================
-var debug = require('debug')('mymarble:server');
+var debug = require('debug')('creditcheck:server');
 var http = require('http');
 /**
  * Get port from environment and store in Express.
@@ -180,7 +187,7 @@ function onListening() {
 // ============================================================================================================================
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-process.env.NODE_ENV = 'Testing';
+process.env.NODE_ENV = 'debug';
 server.timeout = 240000;																							// Ta-da.
 var host='localhost';
 
@@ -199,34 +206,145 @@ process.on('uncaughtException', function (err) {
 });
 
 
-var fabricNet=require(__dirname+'/utils/fabric_net_api.js')(fcw,configer,logger);
+// ============================================================================================================================
+// 														Work Area
+// ============================================================================================================================
 
-//enroll_admin
-fabricNet.enroll_admin(2,function (err,obj) {
-    if(err==null) {
-        logger.info("get genesis block");
-        var g_option = configer.makeEnrollmentOptions(0);
+// ----------------------------------------------------------------------------------------------------------------------------
+// Life Starts Here!
+// ----------------------------------------------------------------------------------------------------------------------------
 
-        logger.info("g_option" + g_option);
+setupWebSocket();
 
-        let tx_id = obj.client.newTransactionID();
-        let g_request = {
-            txID: tx_id
-        };
+setupChannelApis();
 
-        g_option.peer_url = g_option.peer_urls[0];
-        g_option.txID="ac34206d75b7df3bbe894817fbb78e60bbad33376def4b06f1614d13a1556216";
-        fcw.query_transation_byID(obj,g_option,function (err,resp) {
-            if (err){
-                logger.error(err);
-            }else{
-                logger.info("the tx:",resp);
+
+
+
+
+// ============================================================================================================================
+// 												WebSocket Communication Setup
+// ============================================================================================================================
+function setupWebSocket() {
+    logger.info('------------------------------------------ Websocket Up ------------------------------------------');
+    var wss = new ws.Server({ server: server });								//start the websocket now
+    wss.on('connection', function connection(ws) {
+        logger.debug('[ws] received ws connect');
+        ws.on('message', function incoming(message) {
+            console.log(' ');
+            console.log('-------------------------------- Incoming WS Msg --------------------------------');
+            logger.debug('[ws] received ws msg:', message);
+            var data = null;
+            try {
+                data = JSON.parse(message);
             }
-        })
-    }
-});
+            catch (e) {
+                logger.debug('[ws] message error', message, e.stack);
+            }
+            if (data && data.type == 'setup') {
+                logger.debug('[ws] setup message', data);
+
+
+            }
+            else if (data) {
+                logger.debug('[ws]  message', data);
+            }
+            wss.broadcast(build_state_msg())
+
+        });
+
+        ws.on('error', function (e) { logger.debug('[ws] error', e); });
+        ws.on('close', function () { logger.debug('[ws] closed'); });
+        ws.send(JSON.stringify(build_state_msg()));							//tell client our app state
+    });
+    wss.broadcast = function broadcast(data) {
+        var i = 0;
+        wss.clients.forEach(function each(client) {
+            try {
+                logger.debug('[ws] broadcasting to clients. ', (++i), data.msg);
+                client.send(JSON.stringify(data));
+            }
+            catch (e) {
+                logger.debug('[ws] error broadcast ws', e);
+            }
+        });
+    };
+
+    wss.broadcastMsg = function broadcast(msg,state,payload) {
+        var data={
+            msg:msg,
+            state:state,
+            payload:payload
+        };
+        var i = 0;
+        wss.clients.forEach(function each(client) {
+            try {
+                logger.debug('[ws] broadcasting to clients. ', (++i), data.msg);
+                client.send(JSON.stringify(data));
+            }
+            catch (e) {
+                logger.debug('[ws] error broadcast ws', e);
+            }
+        });
+    };
+    app.wss=wss;
+
+}
+
+// Message to client to communicate where we are in the start up
+function build_state_msg() {
+    return {
+        msg: 'app_state',
+        state: 'test_state',
+        first_setup: true
+    };
+}
 
 
 
+// ============================================================================================================================
+// 												Event-Hub Listener Setup
+// ============================================================================================================================
 
-module.exports = app;
+
+
+function setupChannelApis() {
+    var fabricNet=require(__dirname+'/utils/fabric_net_api.js')(fcw,configer,logger);
+
+    var channelinfo={
+        low:0,
+        high:0,
+        currentBlockHash:"",
+        previousBlockHash:""
+    };
+
+    app.channelinfo=channelinfo;
+    //enroll_admin
+    fabricNet.enroll_admin(2,function (err,obj) {
+        if(err==null) {
+            logger.info("get genesis block");
+            var g_option = configer.makeEnrollmentOptions(0);
+            g_option.chaincode_id=configer.getChaincodeId();
+            g_option.chaincode_version=configer.getChaincodeVersion();
+            logger.info(g_option.chaincode_id);
+            g_option.event_url=configer.getPeerEventUrl(configer.getFirstPeerName(configer.getChannelId()))
+
+            fcw.query_channel_info(obj,g_option,function (err,resp) {
+                if (err!=null){
+                    logger.error("Error for getting channel info!");
+                }else {
+                    app.channelinfo.low=resp.height.low;
+                    app.channelinfo.high=resp.height.high;
+                    app.channelinfo.currentBlockHash=resp.currentBlockHash;
+                    app.channelinfo.previousBlockHash=resp.previousBlockHash
+                }
+            });
+
+            var cc_api=require(__dirname+'/utils/creditcheck_cc_api.js')(obj,g_option,fcw,logger);
+            cc_api.setupEventHub(app.wss,app.channelinfo);
+            app.cc_api=cc_api;
+        }else{
+            logger.error("Error for enroll admin to channel!");
+        }
+    });
+}

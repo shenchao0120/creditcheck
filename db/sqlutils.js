@@ -13,6 +13,8 @@ module.exports=function (configer,logger) {
     var count=1;
     var connection;
 
+    const PAGECOUNT=6;
+
     function handleDisconnect() {
         connection = mysql.createConnection({
             host: configer.config.mysql.host,
@@ -385,7 +387,7 @@ module.exports=function (configer,logger) {
                 column = '*'
 
             var updatewhereparm = " (1=1)  "
-            var searchparm = {pkName:pkValue}
+            //var searchparm = {pkName:pkValue}
             var addSqlParams = []
 
             Object.keys( condtion ).forEach((k)=>{
@@ -403,9 +405,7 @@ module.exports=function (configer,logger) {
 
             logger.debug(` the search sql is : ${sql} `)
 
-
-
-            connection.query(sql, function(err, rows, fields  ) {
+            connection.query(sql,addSqlParams, function(err, rows, fields  ) {
 
                 if (err){
                     reject(err)
@@ -451,8 +451,7 @@ module.exports=function (configer,logger) {
 
             var sql = ` ${sqlchareter} where ${updatewhereparm}   ${limit}`
 
-            logger.debug(` the search sql is : ${sql} `)
-
+            logger.debug(` the search sql is : ${sql} `);
 
             connection.query(sql, addSqlParams ,function(err, rows, fields  ) {
 
@@ -616,6 +615,52 @@ module.exports=function (configer,logger) {
             });
         })
     }
+
+    sqlService.getCountByCondition=function (tablename,condtion){
+
+
+        return new Promise(function (resolve,reject){
+
+            var updatewhereparm = " (1=1)  "
+            //var searchparm = {pkName:pkValue}
+            var addSqlParams = []
+
+            Object.keys( condtion ).forEach((k)=>{
+
+                let v = condtion[k]
+
+                addSqlParams.push(v)
+                updatewhereparm = updatewhereparm+` and ${k}=? `
+
+            })
+
+
+
+            var sql = ` select  count(1) from ${tablename} where ${updatewhereparm} `
+
+            logger.debug(` the search sql is : ${sql} `)
+
+            connection.query(sql,addSqlParams, function(err, result  ) {
+
+                if (err){
+                    reject(err)
+                }
+
+                // console.log(  `The solution is: ${rows.length }  `  );
+                logger.debug(' the getCountByCondition ')
+
+                resolve(result)
+
+            });
+        })
+
+    }
+
+
+// ----------------------------------------------------------------------------------------------------------------------------
+// Business related Part
+// ----------------------------------------------------------------------------------------------------------------------------
+
     sqlService.isUserExisted=function (user_id) {
         var self=this;
         return new Promise(function (resolve,reject) {
@@ -648,24 +693,132 @@ module.exports=function (configer,logger) {
                     });
             }
         })
-    }
-    /*
-    sqlService.isUserAdmin=function (user_id) {
+    };
+
+    sqlService.findCusBaseInfoByIdNum=function (id_num) {
+        var self=this;
+        logger.info("Find CusBaseInfo By Id Num.");
+        return new Promise(function (resolve,reject) {
+            if(id_num==null ||id_num.length==0){
+                reject(new Error('The cus id num is null.'))
+            }else{
+                self.getRowByPk('cus_base_info','','cus_id_num',"'"+id_num+"'")
+                    .then((obj)=>{
+                        resolve(obj);})
+                    .catch(function (err) {
+                        logger.info('cus id num not exist.');
+                        reject(err);
+                    })
+            }
+        });
+    };
+
+    sqlService.findCusBaseInfoByCusId=function (cus_id) {
         var self=this;
         return new Promise(function (resolve,reject) {
-            if(user_id==null || user_id.length==0){
-                reject(new Error('User id is null'));
+            if(cus_id==null ||cus_id.length==0){
+                reject(new Error('The cus id num is null.'))
             }else{
-                self.getRowByPk('user_info','','user_id',user_id)
+                self.getRowByPk('cus_base_info','','cus_id',"'"+cus_id+"'")
                     .then((obj)=>{
-                    resolve(obj);})
-                    .catch(function(err){
-                    reject(err)
+                        resolve(obj);})
+                    .catch(function (err) {
+                        logger.info('cus id num not exist.');
+                        reject(err);
+                    })
+            }
+        });
+    };
+
+    sqlService.findCusBaseInfoByPage=function (pageNum) {
+        if (pageNum==null){
+            pageNum=1;
+        }
+        var pageStart= PAGECOUNT*(pageNum-1);
+
+        var limit='LIMIT '+ pageStart+' ,'+PAGECOUNT;
+        logger.debug('limit:',limit);
+        var self=this;
+        return new Promise(function (resolve,reject) {
+            self.getRowsByCondition('cus_base_info','',{},'',limit)
+                    .then((obj)=>{
+                        resolve(obj);})
+                    .catch(function (err) {
+                        logger.info('cus id num not exist.');
+                        reject(err);
+                    });
+        });
+    };
+
+    sqlService.queryCusBaseInfoPageNum=function () {
+        var self=this;
+        return new Promise(function (resolve,reject) {
+            self.getCountByCondition('cus_base_info',{})
+                .then((result)=>{
+                    var jsonObj=result[0];
+                    var count=parseInt(jsonObj['count(1)']/PAGECOUNT)+1;
+                    resolve(count);
+                })
+                .catch(function (err) {
+                    logger.info('Error or no record');
+                    reject(err);
+                })
+        })
+    };
+
+
+    sqlService.findCusCreditInfoByCusId=function (cus_id) {
+        var self=this;
+        return new Promise(function (resolve,reject) {
+            if(cus_id==null ||cus_id.length==0){
+                reject(new Error('The cus id is null.'))
+            }else{
+                self.getRowsByCondition('cus_credit_info','',{cus_id:cus_id},'','')
+                    .then((obj)=>{
+                        resolve(obj);})
+                    .catch(function (err) {
+                        logger.info('cus id not exist.');
+                        reject(err);
                     });
             }
-        })
-    }
-    */
+        });
+    };
+
+
+    sqlService.findCusDepositInfoByCusId=function (cus_id) {
+        var self=this;
+        return new Promise(function (resolve,reject) {
+            if(cus_id==null ||cus_id.length==0){
+                reject(new Error('The cus id is null.'))
+            }else{
+                self.getRowsByCondition('cus_deposit_info','',{cus_id:cus_id},'','')
+                    .then((obj)=>{
+                        resolve(obj);})
+                    .catch(function (err) {
+                        logger.info('cus id not exist.');
+                        reject(err);
+                    });
+            }
+        });
+    };
+
+    sqlService.findCusRepayInfoByCusId=function (cus_id) {
+        var self=this;
+        return new Promise(function (resolve,reject) {
+            if(cus_id==null ||cus_id.length==0){
+                reject(new Error('The cus id  is null.'))
+            }else{
+                self.getRowsByCondition('cus_repay_info','',{cus_id:cus_id},'','')
+                    .then((obj)=>{
+                        resolve(obj);})
+                    .catch(function (err) {
+                        logger.info('cus id not exist.');
+                        reject(err);
+                    });
+            }
+        });
+    };
+
 
     return sqlService;
 

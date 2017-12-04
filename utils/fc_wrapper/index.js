@@ -98,7 +98,6 @@ module.exports = function (g_options, logger) {
 		});
 	};
 
-
 	// ------------------------------------------------------------------------
 	// Enrollment Functions
 	// ------------------------------------------------------------------------
@@ -134,7 +133,6 @@ module.exports = function (g_options, logger) {
 	fcw.query_block = function (obj, options, cb_done) {
 		query_peer.query_block(obj, options, cb_done);
 	};
-
 
 	// ------------------------------------------------------------------------
 	// Channel Functions
@@ -196,8 +194,6 @@ module.exports = function (g_options, logger) {
 		query_peer.query_channel_config(obj,options,cb_done);
     }
 
-    //
-
 	// Get list of installed cc's
 	fcw.query_installed_cc = function (obj, options, cb_done) {
 		query_peer.query_installed_cc(obj, options, cb_done);
@@ -221,8 +217,6 @@ module.exports = function (g_options, logger) {
 	fcw.query_transation_byID=function (obj,options,cb_done) {
 		query_peer.query_transation_byID(obj,options,cb_done);
     }
-
-
 
 	return fcw;
 };

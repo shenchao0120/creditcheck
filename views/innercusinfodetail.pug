@@ -1,0 +1,164 @@
+extends ./template/layout.pug
+
+block content
+    section#main-content
+        section.wrapper
+            .row
+                .col-lg-12
+                    h3.page-header
+                        i.fa.fa-laptop
+                        |  客户详细信息
+                    ol.breadcrumb
+                        li
+                            i.fa.fa-home
+                            a(href='index.html') Home
+                        li
+                            i.fa.fa-laptop
+                            | 客户详细信息
+            // Basic Forms & Horizontal Forms
+            .row
+                .col-lg-12.col-sm-6
+                    section.panel
+                        header.panel-heading
+                            | 基本信息
+                        .panel-body
+                            table.table.table-striped.table-advance.table-hover
+                                thead
+                                    tr
+                                        th
+                                            i.icon_profile
+                                            |  姓名
+                                        th
+                                            i.icon_id
+                                            |  身份证
+                                        th
+                                            i.icon_calendar
+                                            |  出生日期
+                                        th
+                                            i.icon_mail_alt
+                                            |  Email
+                                        th
+                                            i.icon_pin_alt
+                                            |  籍贯
+                                        th
+                                            i.icon_mobile
+                                            |  电话
+
+                                tbody
+                                        tr
+                                            td(hidden='true') #{cusBaseInfo.cus_id}
+                                            td #{cusBaseInfo.cus_name}
+                                            td #{cusBaseInfo.cus_id_num}
+                                            td #{cusBaseInfo.birthday}
+                                            td #{cusBaseInfo.email}
+                                            td #{cusBaseInfo.city}
+                                            td #{cusBaseInfo.phone_num}
+
+            .row
+                .col-lg-12.col-sm-6
+                    section.panel
+                        header.panel-heading
+                            | 客户负债信息
+                        table.table.table-striped
+                            thead
+                                tr
+                                    th 序号
+                                    th 业务类型
+                                    th 业务编号
+                                    th 开始时间
+                                    th 到期时间
+                                    th 币种
+                                    th 逾期次数
+                                    th 本金总额
+                                    th 已还本金
+                                    th 利息总额
+                                    th 已还利息
+                                    th 下一还款日
+                                    th 上一还款日
+                                    th 逾期天数
+                                    th 五级分类
+                            tbody
+                                - var count=0;
+                                each creditobj in cusCreditInfo
+                                    - count++;
+                                    tr
+                                        td #{count}
+                                        td #{creditobj.bus_type}
+                                        td #{creditobj.bus_no}
+                                        td #{creditobj.begin_dt}
+                                        td #{creditobj.setl_dt}
+                                        td #{creditobj.ccy}
+                                        td #{creditobj.od_times}
+                                        td #{creditobj.debt_Amt}
+                                        td #{creditobj.setl_Amt}
+                                        td #{creditobj.own_int}
+                                        td #{creditobj.setl_int}
+                                        td #{creditobj.nxt_pay_dt}
+                                        td #{creditobj.last_pay_dt}
+                                        td #{creditobj.od_days}
+                                        td #{creditobj.classes}
+
+            .row
+                .col-lg-12.col-sm-6
+                    section.panel
+                        header.panel-heading
+                            | 客户资产信息
+                        table.table.table-striped
+                            thead
+                                tr
+                                    th 序号
+                                    th 账户类型
+                                    th 账户编号
+                                    th 账户状态
+                                    th 开户时间
+                                    th 币种
+                                    th 开户行
+                                    th 余额
+                            tbody
+                                - var count=0;
+                                each depositobj in cusDepositInfo
+                                    - count++;
+                                    tr
+                                        td #{count}
+                                        td #{depositobj.acc_type}
+                                        td #{depositobj.acc_no}
+                                        td #{depositobj.acc_state}
+                                        td #{depositobj.open_dt}
+                                        td #{depositobj.ccy}
+                                        td #{depositobj.open_bank}
+                                        td #{depositobj.balance}
+            .row
+                .col-lg-12.col-sm-6
+                    section.panel
+                        header.panel-heading
+                            | 客户还款信息
+                        table.table.table-striped
+                            thead
+                                tr
+                                    th 序号
+                                    th 业务类型
+                                    th 业务编号
+                                    th 币种
+                                    th 期次
+                                    th 应还日
+                                    th 实际还款日
+                                    th 应还款总额
+                                    th 实际还款额
+                                    th 逾期天数
+                            tbody
+                                - var count=0;
+                                each repayobj in cusRepayInfo
+                                    - count++;
+                                    tr
+                                        td #{count}
+                                        td #{repayobj.bus_type}
+                                        td #{repayobj.bus_no}
+                                        td #{repayobj.ccy}
+                                        td #{repayobj.perd_no}
+                                        td #{repayobj.shd_pay_dt}
+                                        td #{repayobj.real_pay_dt}
+                                        td #{repayobj.shd_pay_amt}
+                                        td #{repayobj.real_pay_amt}
+                                        td #{repayobj.od_days}
+            div(align='center')
+                a.btn.btn-primary(href="#") 发布到链上

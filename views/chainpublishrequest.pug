@@ -1,0 +1,116 @@
+extends ./template/layout.pug
+
+block content
+    section#main-content
+        section.wrapper
+            .row
+                .col-lg-12
+                    h3.page-header
+                        i.fa.fa-file-text-o
+                        |  发起链上查询
+                    ol.breadcrumb
+                        li
+                            i.fa.fa-home
+                            a(href='index.html') Home
+                        li
+                            i.icon_document_alt
+                            | 链上操作
+                        li
+                            i.fa.fa-file-text-o
+                            | 发起查询
+            .row
+                .col-lg-12
+                    section.panel
+                        header.panel-heading
+                            | 查询客户要素
+                        .panel-body
+                            form.form-horizontal(method='post' action='/chain/publishrequest')
+                                .form-group
+                                    label.col-sm-2.control-label 身份证号码:
+                                    .col-sm-6
+                                        input#focusedInput(name='cus_id_num' type='text').form-control
+                                .form-group
+                                    label.col-sm-2.control-label 查询类型:
+                                    .col-sm-2
+                                        select(name='req_type').form-control.input-sm.m-bot15.linkedin-bg
+                                            option(value='0') 负债信息
+                                            option(value='1') 资产信息
+                                            option(value='2') 全部
+                                .form-group
+                                    label.col-sm-2.control-label 查询期限:
+                                    .col-sm-2
+                                        select(name='time_line').form-control.input-sm.m-bot15.linkedin-bg
+                                            option(value='1') 一个月
+                                            option(value='3') 三个月
+                                            option(value='6') 半年
+                                            option(value='12') 一年
+                                            option(value='0') 全部
+                                .form-group
+
+                                        label.col-sm-2.control-label 查询机构:
+                                        //.col-sm-2
+                                            select(name='req_orgs').form-control.input-sm.m-bot15.linkedin-bg
+                                                option(value='0') 全部
+                                        .col-sm-10
+                                            button.btn.btn-primary.btn-sm.linkedin-bg(type='button', data-toggle='modal', data-target='#selectOrgsModal')
+                                                | 选择机构...
+                                            p
+                                            input(type='text' disabled).form-control
+                                        // Modal
+                                #selectOrgsModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='orgsModalLabel')
+                                    .modal-dialog(role='document' )
+                                        .modal-content
+                                            .modal-header
+                                                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                                    span(aria-hidden='true') ×
+                                                h4#orgsModalLabel.modal-title 选择想要查询的机构
+                                            .modal-body
+                                                     .checkboxes
+                                                         .form-group
+                                                            label.col-sm-12.label_check(for='checkboxall')
+                                                                input#checkboxall.orgscheckbox(name='sample-checkbox-01', value='all', type='checkbox')
+                                                                |  全部
+                                                         .form-group
+                                                            label.col-sm-6.label_check(for='checkbox-02')
+                                                                input#checkbox-02.orgscheckbox(name='sample-checkbox-02', value='org1', type='checkbox')
+                                                                |  建设银行
+                                                            label.col-sm-6.label_check(for='checkbox-03')
+                                                                input#checkbox-03.orgscheckbox(name='sample-checkbox-03', value='org2', type='checkbox')
+                                                                |  农业银行
+                                                            label.col-sm-6.label_check(for='checkbox-05')
+                                                                input#checkbox-05.orgscheckbox(name='sample-checkbox-04', value='org3', type='checkbox')
+                                                                |  招商银行
+                                                            label.col-sm-6.label_check(for='checkbox-06')
+                                                                input#checkbox-06.orgscheckbox(name='sample-checkbox-04', value='org4', type='checkbox')
+                                                                |  兴业银行
+                                                            label.col-sm-6.label_check(for='checkbox-07')
+                                                                input#checkbox-07.orgscheckbox(name='sample-checkbox-04', value='org5', type='checkbox')
+                                                                |  工商银行
+                                                            label.col-sm-6.label_check(for='checkbox-08')
+                                                                input#checkbox-08.orgscheckbox(name='sample-checkbox-04', value='org6', type='checkbox')
+                                                                |  邮政银行
+
+                                            .modal-footer
+                                                .text-align-center
+                                                    button#checkboxsave.btn.btn-primary(type='button') 保存
+                                                    button.btn.btn-default(type='button', data-dismiss='modal') 关闭
+
+                                button.col-sm-2.col-sm-offset-5.btn.btn-info.text-align-center.green-bg(type="submit" ) 发布
+
+
+
+
+
+    script.
+            $(document).ready(function () {
+                $("#checkboxall").click(function () {
+                    if($("#checkboxall").attr("checked")===undefined){
+                        $("input.orgscheckbox").attr("checked","true");
+                    }else{
+                        console.log("come to removeAttr");
+                        $("input.orgscheckbox").removeAttr("checked");
+                    }
+                });
+
+                $()
+            });

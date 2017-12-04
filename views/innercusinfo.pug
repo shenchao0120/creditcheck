@@ -1,0 +1,102 @@
+extends ./template/layout.pug
+
+block content
+    // main content start
+    section#main-content
+        section.wrapper
+            // overview start
+            .row
+                .col-lg-12
+                    h3.page-header
+                        i.fa.fa-laptop
+                        |  行内客户信息
+                    ol.breadcrumb
+                        li
+                            i.fa.fa-home
+                            a(href='index.html') Home
+                        li
+                            i.fa.fa-laptop
+                            | 行内客户信息
+            .row
+                .col-lg-12
+                    section.panel
+                        header.panel-heading
+                            | 客户信息列表
+                        table.table.table-striped.table-advance.table-hover
+                            thead
+                                    tr
+                                        th
+                                            i.icon_profile
+                                            |  姓名
+                                        th
+                                            i.icon_id
+                                            |  身份证
+                                        th
+                                            i.icon_calendar
+                                            |  出生日期
+                                        th
+                                            i.icon_mail_alt
+                                            |  Email
+                                        th
+                                            i.icon_pin_alt
+                                            |  籍贯
+                                        th
+                                            i.icon_mobile
+                                            |  电话
+                                        th
+                                            i.icon_cogs
+                                            |  动作
+                            tbody
+                                each obj in objs
+                                    tr
+                                        td(hidden='true') #{obj.cus_id}
+                                        td #{obj.cus_name}
+                                        td #{obj.cus_id_num}
+                                        td #{obj.birthday}
+                                        td #{obj.email}
+                                        td #{obj.city}
+                                        td #{obj.phone_num}
+                                        - var str='/inner/cusinfo/detail?cus_id='+ obj.cus_id
+                                        td
+                                            .btn-group
+                                                a.btn.btn-primary(href=str)
+                                                    i.icon_plus_alt2
+                                                a.btn.btn-success(href='#')
+                                                    i.icon_check_alt2
+                                                a.btn.btn-danger(href='#')
+                                                    i.icon_close_alt2
+
+                section.panel
+                    .panel-body
+                        .text-center
+                            ul.pagination
+                                - if (curPage==1)
+                                    li
+                                        a.disabled «
+                                - else
+                                    - var str='/inner/cusinfo?page='+(curPage-1)
+                                     li
+                                         a(href=str) «
+                                - for(var i=1; i <= pageNum; i++)
+                                    - var str='/inner/cusinfo?page='+i;
+                                    - if (i==curPage)
+                                        li
+                                            a.selected(href=str) #{i}
+                                    - else
+                                        li
+                                            a(href=str) #{i}
+                                - if (curPage==pageNum)
+                                    li
+                                        a.disabled »
+                                - else
+                                     - var str='/inner/cusinfo?page='+(parseInt(curPage)+1)
+                                        li
+                                           a(href=str) »
+
+
+    //script.
+        $(document).ready(function () {
+            $(".sidebar-menu li").attr("class", "sub-menu");
+            $("li#innercusinfoli").attr("class", "active");
+            $("li#innerinfoli").attr("class", "open");
+        });

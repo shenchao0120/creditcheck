@@ -7,7 +7,10 @@ var path = require('path');
 var os = require('os');
 
 
-module.exports = function (loader,config_filename, logger) {
+module.exports = function (block_config_File,config_filename, logger) {
+
+    var loader=require(__dirname+'/cfg_loader.js')(block_config_File,logger);
+
     if(!config_filename){
         config_filename='marbles_local.json';
     }
@@ -19,17 +22,21 @@ module.exports = function (loader,config_filename, logger) {
     // --------------------------------------------------------------------------------
     // get the marble owner names
     loader.getMarbleUsernames = function () {
-        return getMarblesField('usernames');
+        return getConfigFileField('usernames');
     };
 
     // get the marbles trading company name
     loader.getCompanyName = function () {
-        return getMarblesField('company');
+        return getConfigFileField('company');
     };
+
+    loader.getMyOrganizationID=function () {
+        return getConfigFileField('my_organization_id');
+    }
 
     // get the marble's server port number
     loader.getMarblesPort = function () {
-        return getMarblesField('port');
+        return getConfigFileField('port');
     };
 
     // get the status of marbles previous startup
@@ -42,13 +49,13 @@ module.exports = function (loader,config_filename, logger) {
 
     // get the re-enrollment period in seconds
     loader.getKeepAliveMs = function () {
-        var sec = getMarblesField('keep_alive_secs');
+        var sec = getConfigFileField('keep_alive_secs');
         if (!sec) sec = 30;									//default to 30 seconds
         return (sec * 1000);
     };
 
     // safely retrieve marbles fields
-    function getMarblesField(marbles_field) {
+    function getConfigFileField(marbles_field) {
         try {
             if (loader.config[marbles_field]) {
                 return loader.config[marbles_field];
@@ -71,7 +78,7 @@ module.exports = function (loader,config_filename, logger) {
     loader.makeUniqueId = function () {
         const channel = loader.getChannelId();
         const first_peer = loader.getFirstPeerName(channel);
-        return 'marbles-' + loader.getNetworkName() + '-' + channel + '-' + first_peer;
+        return 'creditCheck-' + loader.getNetworkName() + '-' + channel + '-' + first_peer;
     };
 
     // build the marbles lib module options

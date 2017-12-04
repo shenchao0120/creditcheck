@@ -10,14 +10,111 @@ html
         link(rel="icon" href="/imgs/favicon-96.png" sizes="96x96")
         link(rel="stylesheet" href="/public/css/font-awesome-4.7.0/css/font-awesome.min.css")
         link(rel="stylesheet" href="/public/css/bootstrap.min.css")
-        link(rel="stylesheet" href="/public/css/main.css")
+
+        //link(rel="stylesheet" href="/public/css/bootstrap-theme.css")
+        link(rel="stylesheet" href="/public/css/elegant-icons-style.css")
+        //link(rel="stylesheet" href="/public/css/main.css")
+
+        link(rel="stylesheet" href="/public/css/style.css")
+
         script(src="/public/js/jquery.min.js")
         script(src="/public/js/bootstrap.min.js")
 
     body
-        header.header
-            .banner
+        section#container
+            header.header.linkedin-bg
+                .toggle-nav
+                    .icon-reorder.tooltips(data-original-title="Toggle Navigation" data-placement="bottom")
+                a.logo(href="\/")
+                    |  CBHB
+                    span.lite2
+                        | 征信链
+                .top-nav.notification-row
+                    // notificatoin dropdown start
+                    ul.nav.pull-right.top-menu
+                        // user login dropdown start
+                        li.dropdown
+                            a.dropdown-toggle(data-toggle='dropdown', href='#')
+                                span.profile-ava
+                                    img(alt='', src='../public/imgs/avatar-mini4.jpg')
+                                span.username  #{username}
+                                b.caret
+                            ul.dropdown-menu.extended.logout
+                                .log-arrow-up
+                                li.eborder-top
+                                    a(href='#')
+                                        i.icon_profile
+                                        |  个人信息
+                                li
+                                    a(href='#')
+                                        i.icon_mail_alt
+                                        |  我的消息
+                                li
+                                    a(href='#')
+                                        i.icon_clock_alt
+                                        |  历史记录
+                                li
+                                    a(href='#')
+                                        i.icon_chat_alt
+                                        |  聊天
+                                li
+                                    a(href='logout')
+                                        i.icon_key_alt
+                                        |  注销
+                        // user login dropdown end
+                    // notificatoin dropdown end
+
+            // sidebar start
+            aside
+                #sidebar.nav-collapse
+                    // sidebar menu start
+                    ul.sidebar-menu
+                        li.active#mainpageli
+                            a(href='\/')
+                                i.icon_house_alt
+                                span 主页
+                        li.sub-menu#innerinfoli
+                            a(href='javascript:;')
+                                i.icon_document_alt
+                                span 行内信息查询
+                                span.menu-arrow.arrow_carrot-right
+                            ul.sub
+                                li#innercusinfoli
+                                    a(href="\/inner\/cusinfo") 客户信息查询
+                                li
+                                    a(href='form_validation.html') 历史信息
+                        li.sub-menu#chanininfoli
+                            a(href='javascript:;')
+                                i.icon_genius
+                                span  链上信息操作
+                                span.menu-arrow.arrow_carrot-right
+                            ul.sub
+                                li
+                                    a(href='\/chain\/publishrequest') 发起链上查询
+                                li
+                                    a(href='buttons.html') 链上响应结果
+                                li
+                                    a(href='grids.html') 发布公共信息
+                                li
+                                    a(href='grids.html') 查询公共信息
+                        li
+                            a(href='widgets.html')
+                                i.icon_search-2
+                                span 链上历史信息
+                        li.sub-menu
+                            a(href='javascript:;')
+                                i.icon_toolbox_alt
+                                span 系统设置
+
+                    // sidebar menu end
+            // sidebar end
 
         block content
+
+    script(src='/public/js/scripts.js')
+    script(src='/public/js/jquery.scrollTo.min.js')
+    script(src='/public/js/jquery.nicescroll.js', type='text/javascript')
+    script(src='/public/js/ui_event.js')
+    script(src='/public/js/websocket.js')
 
 

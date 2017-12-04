@@ -67,6 +67,11 @@ table tr th { color: #688a7e;}
   color: #00a0df !important;
 }
 
+.lite2{
+  padding: 10px !important;
+  color: #f1f2f7 !important;
+}
+
 /*login page*/
 
 .login-body {
@@ -261,7 +266,7 @@ table tr th { color: #688a7e;}
   width: 180px;
   height: 100%;
   position: fixed;
-  background: #394a59;
+  background: #4875b4;
 }
 
 .nav-collapse.collapse {
@@ -286,7 +291,7 @@ ul.sidebar-menu {
 }
 
 ul.sidebar-menu li ul.sub li{
-  background: #394a59;
+  background: #4875b4;
   margin-bottom: 0;
   margin-left: 0;
   margin-right: 0;
@@ -361,7 +366,7 @@ ul.sidebar-menu li a{
     top: 2px;
 }*/
 ul.sidebar-menu li.active a, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
-  background: #2e3b46;
+  background: #acdef6;
   color: #fff;
   display: block;
   /*border-radius: 4px;
@@ -928,12 +933,12 @@ div[data-role="editor-toolbar"] {
   color: rgba(255, 255, 255, 0.75);
 }
 .info-box .count {
-  margin-top: 20px;
+  margin-top: 17px;
   font-size: 34px;
   font-weight: 700;
 }
 .info-box .title {
-  font-size: 12px;
+  font-size: 17px;
   text-transform: uppercase;
   font-weight: 600;
 }
@@ -1154,6 +1159,28 @@ div[data-role="editor-toolbar"] {
   border-bottom-color: #ccc!important;
   border-left-color: #ccc!important;
 }
+.panel .panel-body .label-name  {
+  text-decoration: none;
+  font-size: 16px;
+  text-align: left;
+  line-height: 32px;
+  padding: 0px;
+  margin: 0;
+  color: #333;
+  font-weight: bold;
+}
+
+.panel .panel-body .label-content  {
+  text-decoration: none;
+  font-size: 18px;
+  text-align: left;
+  line-height: 32px;
+  padding: 0px;
+  margin: 0;
+  color: #333;
+  font-weight: bold;
+}
+
 .panel .panel-body-map {
   border-width: 1px 1px 2px;
   border-style: solid;
@@ -1658,6 +1685,15 @@ div[data-role="editor-toolbar"] {
 
 .pagination li a{
   color:#777;
+}
+
+.pagination li a.disabled{
+  color:#ccc;
+}
+
+.pagination li a.selected{
+  font-size: 17px;
+  font-weight: bold;
 }
 /* Widget white extras */
 

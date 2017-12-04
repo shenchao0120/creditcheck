@@ -1,7 +1,54 @@
 extends ./template/layout.pug
 
 block content
-    a.btn.btn-primary.pull-right(href='logout' style="padding-right: 20px") 注销
-    #contentPanel
-    h1.text-center this is the title
+        // main content start
+        section#main-content
+          section.wrapper
+            // overview start
+            .row
+              .col-lg-12
+                h3.page-header
+                  i.fa.fa-laptop
+                  |  总体信息
+                ol.breadcrumb
+                  li
+                    i.fa.fa-home
+                    a(href='index.html') Home
+                  li
+                    i.fa.fa-laptop
+                    | 总体信息
+
+            .row
+              .col-lg-3.col-md-3.col-sm-12.col-xs-12
+                .info-box.green-bg#blockHeight
+                  i.fa.fa-cubes
+                  .count #{low}
+                  .title 区块总数
+                // /.info-box
+              // /.col
+              .col-lg-3.col-md-3.col-sm-12.col-xs-12
+                .info-box.blue-bg#blockTxNum
+                  i.fa.fa-cloud-download
+                  .count 0
+                  .title 交易总数
+                // /.info-box
+              // /.col
+              .col-lg-3.col-md-3.col-sm-12.col-xs-12
+                .info-box.brown-bg
+                  i.fa.fa-shopping-cart
+                  .count 0
+                  .title 客户总数
+                // /.info-box
+              // /.col
+              .col-lg-3.col-md-3.col-sm-12.col-xs-12
+                .info-box.dark-bg
+                  i.fa.fa-thumbs-o-up
+                  .count 0
+                  .title 机构总数
+                // /.info-box
+              // /.col
+            // overview start
+        // main content end
+
+
 

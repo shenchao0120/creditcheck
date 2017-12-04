@@ -7,7 +7,7 @@
 	"client": {
 		"organization": "Org1MSP",
 		"credentialStore": {
-			"path": "./crypto/prebaked"
+			"path": "./crypto/creds"
 		}
 	},
 	"channels": {
@@ -24,7 +24,7 @@
 				}
 			},
 			"chaincodes": {
-				"marbles": "v4"
+				"creditcheck": "v0"
 			},
 			"x-blockDelay": 10000
 		}
@@ -39,33 +39,33 @@
 				"fabric-ca"
 			],
 			"adminPrivateKey": {
-				"path": "./crypto/prebaked/cd96d5260ad4757551ed4a5a991e62130f8008a0bf996e4e4b84cd097a747fec-priv"
+				"path": "./crypto/creds/cd96d5260ad4757551ed4a5a991e62130f8008a0bf996e4e4b84cd097a747fec-priv"
 			},
 			"signedCert": {
-				"path": "./crypto/prebaked/PeerAdminCert.pem"
+				"path": "./crypto/creds/Admin@org1.example.com-cert.pem"
 			}
 		}
 	},
 	"orderers": {
 		"fabric-orderer": {
-			"url": "grpc://116.196.112.180:7050"
+			"url": "grpc://123.56.223.126:7050"
 		}
 	},
 	"peers": {
 		"fabric-peer-org1": {
-			"url": "grpc://116.196.112.180:7051",
-			"eventUrl": "grpc://116.196.112.180:7053"
+			"url": "grpc://123.56.223.126:7051",
+			"eventUrl": "grpc://123.56.223.126:7053"
 		}
 	},
 	"certificateAuthorities": {
 		"fabric-ca": {
-			"url": "http://116.196.112.180:7054",
+			"url": "http://123.56.223.126:7054",
 			"httpOptions": {
 				"verify": true
 			},
 			"registrar": [
 				{
-					"enrollId": "PeerAdmin",
+					"enrollId": "admin",
 					"enrollSecret": "-"
 				}
 			],
