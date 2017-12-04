@@ -144,7 +144,7 @@ module.exports = function (g_options, logger) {
 		query_peer.query_channel_members(obj, options, cb_done);
 	};
 
-	// Get Block Height of Channel
+	// Get Block Info of Channel
 	/*
 		obj: {
 			channel: <sdk channel object>
@@ -157,7 +157,7 @@ module.exports = function (g_options, logger) {
 					},
 		}
 	*/
-    /*
+
     fcw.query_channel_info = function (obj, options, cb_done) {
         query_peer.query_channel_info(obj, options, function (err, resp) {
             if (err != null) {											//looks like an error with the request
@@ -173,26 +173,30 @@ module.exports = function (g_options, logger) {
             }
         });
     };
-    */
-	fcw.query_channel_info=function(obj,options) {
-        return new Promise(function(resolve, reject){
-            query_peer.query_channel_info(obj, options, function (err, resp) {
-                if (err != null) {
-                    if (ha.switch_peer(obj, options) == null) {
-                        logger.info('Retrying query on different peer');
-                        fcw.query_channel_info(obj.options);
-                    } else {
-                        reject(err);
-                    }
-                } else {
-                    ha.success_ca_position = ha.using_peer_position;
-                    resolve(resp);
-                }
-            });
+
+	// Get Block Height of Channel
+	fcw.query_channel_height=function (obj,options,cb_done) {
+        this.query_channel_info(obj,options,function (err,chain_info) {
+			if (err!=null){
+				if(cb_done){
+					cb_done(err);
+				}
+			}else{
+				if(cb_done && chain_info){
+					logger.info("[fcw] Query channel height:",chain_info.height.low);
+					cb_done(null,chain_info.height.low.toString());
+				}
+			}
         });
-    };
 
+    }
 
+    // Get Channel config of Channel
+    fcw.query_channel_config=function (obj,options,cb_done) {
+		query_peer.query_channel_config(obj,options,cb_done);
+    }
+
+    //
 
 	// Get list of installed cc's
 	fcw.query_installed_cc = function (obj, options, cb_done) {
@@ -209,5 +213,42 @@ module.exports = function (g_options, logger) {
 		query_peer.query_list_channels(obj, options, cb_done);
 	};
 
+	fcw.query_block_hash=function (obj,options,cb_done) {
+        query_peer.query_block_hash(obj, options, cb_done);
+
+    };
+
+	fcw.query_transation_byID=function (obj,options,cb_done) {
+		query_peer.query_transation_byID(obj,options,cb_done);
+    }
+
+
+
 	return fcw;
 };
+
+/*
+ fcw.query_channel_info=function(obj,options) {
+ return new Promise(function(resolve, reject){
+ query_peer.query_channel_info(obj, options, function (err, resp) {
+ if (err != null) {
+ if (ha.switch_peer(obj, options) == null) {
+ logger.info('Retrying query on different peer');
+ fcw.query_channel_info(obj.options).then((err,resp)=>{
+ if (err!=null){
+
+ }else{
+
+ }
+ });
+ } else {
+ reject(err);
+ }
+ } else {
+ ha.success_ca_position = ha.using_peer_position;
+ resolve(resp);
+ }
+ });
+ });
+ };
+ */

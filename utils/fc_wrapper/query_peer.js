@@ -42,7 +42,7 @@ module.exports = function (logger) {
 	//-------------------------------------------------------------------
 	/*
 	 options: {
-	 peer_urls: ['array of peer grpc urls'],
+	 peer_url:url,
 	 peer_tls_opts: {
 	 pem: 'complete tls certificate',					<optional>
 	 common_name: 'common name used in pem certificate' 	<optional>
@@ -76,9 +76,20 @@ module.exports = function (logger) {
 			}
 			);
 	};
-    query_peer.query_channel_height=function (obj,options,cb) {
 
-    };
+    //-------------------------------------------------------------------
+    // Get Channel height
+    //-------------------------------------------------------------------
+	/*
+	 options: {
+	 peer_urls: ['array of peer grpc urls'],
+	 peer_tls_opts: {
+	 pem: 'complete tls certificate',					<optional>
+	 common_name: 'common name used in pem certificate' 	<optional>
+	 }
+	 }
+	 */
+
 
 
     //-------------------------------------------------------------------
@@ -364,6 +375,107 @@ module.exports = function (logger) {
 			if (cb) return cb(formatted, null);
 			else return;
 		});
+	};
+
+    //-------------------------------------------------------------------
+    // Get channel configuration
+    //-------------------------------------------------------------------
+	/*
+	 options: {}
+	 */
+    query_peer.query_channel_config = function (obj, options, cb) {
+        logger.debug('[fcw] Querying channel configuration.\n');
+        var channel = obj.channel;
+
+        // send proposal to peer
+        channel.getChannelConfig().then(function (resp) {
+            if (cb) return cb(null, resp);
+        }).catch(function (err) {
+            logger.error('[fcw] Error in query channel configuration', typeof err, err);
+            var formatted = common.format_error_msg(err);
+
+            if (cb) return cb(formatted, null);
+            else return;
+        });
+    };
+
+
+    //-------------------------------------------------------------------
+    // Get Block by hash
+    //-------------------------------------------------------------------
+	/*
+	 options: {
+	 hash:block_hash
+	 peer_url: url,
+	 peer_tls_opts: {
+	 	pem: 'complete tls certificate',					<optional>
+		 common_name: 'common name used in pem certificate' 	<optional>
+	 }
+	 }
+	 */
+    query_peer.query_block_hash = function (obj, options, cb) {
+        logger.debug('[fcw] Querying block by hash.\n');
+        var channel = obj.channel;
+
+        // send proposal to peer
+		if (!options.hash || options.hash.length==0){
+			if (cb) cb(new Error("Block hash is empty!"));
+			return;
+		}
+        if(!options.peer_url || options.peer_url.length==0){
+            options.peer_url= options.peer_urls[0];
+        }
+        // send proposal to peer
+        channel.queryBlockByHash(new Buffer(options.hash,"hex"),new Peer(options.peer_url, {
+            pem: options.peer_tls_opts.pem,
+            'ssl-target-name-override': options.peer_tls_opts.common_name		//can be null if cert matches hostname
+        })).then(function (block_resp) {
+            if (cb) return cb(null, format_block(block_resp));
+        }).catch(function (err) {
+            logger.error('[fcw] Error in query  block by hash', typeof err, err);
+            var formatted = common.format_error_msg(err);
+
+            if (cb) return cb(formatted, null);
+            else return;
+        });
+    };
+
+    //-------------------------------------------------------------------
+    // Get tx by id
+    //-------------------------------------------------------------------
+	/*
+	 options: {
+	 txID:txID
+	 peer_url: url,
+	 peer_tls_opts: {
+	 pem: 'complete tls certificate',					<optional>
+	 common_name: 'common name used in pem certificate' 	<optional>
+	 }
+	 }
+	 */
+	query_peer.query_transation_byID=function(obj,options,cb_done){
+        logger.debug('[fcw] Querying Tx by ID.\n');
+        var channel = obj.channel;
+
+        // send proposal to peer
+        if (!options.txID || options.txID.length==0){
+            if (cb_done) cb_done(new Error("TXID  is empty!"));
+            return;
+        }
+        if(!options.peer_url || options.peer_url.length==0){
+            options.peer_url= options.peer_urls[0];
+        }
+        channel.queryTransaction(options.txID,new Peer(options.peer_url, {
+            pem: options.peer_tls_opts.pem,
+            'ssl-target-name-override': options.peer_tls_opts.common_name		//can be null if cert matches hostname
+        })).then(function (tx_resp) {
+			if (cb_done) cb_done(null,tx_resp);
+        }).catch(function (err) {
+            logger.error('[fcw] Error in query tx by ID', typeof err, err);
+            var formatted = common.format_error_msg(err);
+			if (cb_done) return cb_done(formatted, null);
+            else return;
+        })
 	};
 
 	return query_peer;

@@ -203,94 +203,28 @@ var fabricNet=require(__dirname+'/utils/fabric_net_api.js')(fcw,configer,logger)
 
 //enroll_admin
 fabricNet.enroll_admin(2,function (err,obj) {
-
     if(err==null) {
         logger.info("get genesis block");
-        //get genesis block
-
-
         var g_option = configer.makeEnrollmentOptions(0);
 
         logger.info("g_option" + g_option);
 
         let tx_id = obj.client.newTransactionID();
         let g_request = {
-            txId: tx_id
+            txID: tx_id
         };
-        /*
-        obj.channel.queryBlock(1).then(
-            function (block_resp) {
-                logger.info(block_resp);
-            }
-        ).catch(
 
-        );
-        */
-        g_option.peer_url=g_option.peer_urls[0];
-        fcw.query_channel_info(obj,g_option).then( (err,data)=> {
-            if(err!=null){
+        g_option.peer_url = g_option.peer_urls[0];
+        g_option.txID="ac34206d75b7df3bbe894817fbb78e60bbad33376def4b06f1614d13a1556216";
+        fcw.query_transation_byID(obj,g_option,function (err,resp) {
+            if (err){
                 logger.error(err);
-            }else
-            {
-                logger.info(data);
+            }else{
+                logger.info("the tx:",resp);
             }
-        });
+        })
     }
-
 });
-
-
-
-// ------------------------------------------------------------------------------------------------------------------------------
-// beginning webserver
-// ------------------------------------------------------------------------------------------------------------------------------
-
-/*
- obj.client.queryChannels(obj.channel.getPeers()[0]).then((response)=>{
- logger.info(response.channels.channel_id);
- }).catch((err)=>{
- logger.info(err);
- });
-
- function buffer2hexStr(byteArray) {
- logger.info(byteArray);
- return byteArray.map(function (byte) {
- return ('0' + byte.toString(16)).slice(-2);
- }).join('');
- }
- obj.channel.queryInfo().then(
- function (chain_resp) {
- chain_resp.currentBlockHash = buffer2hexStr(chain_resp.currentBlockHash.buffer);
- chain_resp.previousBlockHash = buffer2hexStr(chain_resp.previousBlockHash.buffer);
- // if (cb) return cb(null, chain_resp);
- logger.info( chain_resp);
- logger.info(typeof chain_resp.currentBlockHash, chain_resp.currentBlockHash,chain_resp.previousBlockHash);
- }
- ).catch(
- function (err) {
- logger.error('[fcw] Error in query block', typeof err, err);
- var formatted = common.format_error_msg(err);
-
- if (cb) return cb(formatted, null);
- else return;
- }
- );
-
- }
- */
-// get the genesis block from the orderer
-/*
- obj.channel.getGenesisBlock(g_request).then((block) =>{
- var genesis_block = block;
- logger.info("the block:"+block.toString());
-
-
- })
- .catch((err)=>{
- logger.error(err);
- });
- }
- */
 
 
 
