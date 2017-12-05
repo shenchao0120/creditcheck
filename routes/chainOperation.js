@@ -16,8 +16,29 @@ router.get('/publishrequest', function(req, res, next) {
 });
 
 router.post('/publishrequest', function(req, res, next) {
-    console.log('the parameters:',req.body.cus_id_num,req.body.req_type,req.body.time_line,req.body.req_orgs);
-    res.render('chainpublishrequest');
+
+    var orgArray=req.body.req_orgs.split(",");
+    var orgstring=orgArray.map(function (item) {
+        return "'"+item+"'"
+    }).join(',');
+
+    var options={};
+    var args={}
+    args.cusId=req.body.cus_id_num;
+    args.orgId=req.app.configer.getMyOrganizationID();
+    args.reqType=req.body.req_type
+    args.reqOrgIDs=orgstring;
+    args.timeLine=req.body.time_line;
+    options.args=args;
+
+    req.app.cc_api.create_info_request(options,function (err,resp) {
+        if(err!=null) {
+            res.write("<script>alert('提交失败:"+err.parsed+"');</script>");
+        }
+        else {
+            res.write("<script>alert('提交成功!');</script>");
+        }
+    });
 
 });
 

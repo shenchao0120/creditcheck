@@ -55,7 +55,7 @@ block content
                                             button.btn.btn-primary.btn-sm.linkedin-bg(type='button', data-toggle='modal', data-target='#selectOrgsModal')
                                                 | 选择机构...
                                             p
-                                            input(type='text' disabled).form-control
+                                            input(name='req_orgs' type='text' readonly="readonly").orgvalues.form-control
                                         // Modal
                                 #selectOrgsModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='orgsModalLabel')
                                     .modal-dialog(role='document' )
@@ -68,26 +68,26 @@ block content
                                                      .checkboxes
                                                          .form-group
                                                             label.col-sm-12.label_check(for='checkboxall')
-                                                                input#checkboxall.orgscheckbox(name='sample-checkbox-01', value='all', type='checkbox')
+                                                                input#checkboxall.orgscheckbox(name='sample-checkbox-01', type='checkbox')
                                                                 |  全部
                                                          .form-group
                                                             label.col-sm-6.label_check(for='checkbox-02')
-                                                                input#checkbox-02.orgscheckbox(name='sample-checkbox-02', value='org1', type='checkbox')
+                                                                input#checkbox-02.orgscheckbox.orgscheckreturn(name='sample-checkbox-02', value='ORGID001', type='checkbox')
                                                                 |  建设银行
                                                             label.col-sm-6.label_check(for='checkbox-03')
-                                                                input#checkbox-03.orgscheckbox(name='sample-checkbox-03', value='org2', type='checkbox')
+                                                                input#checkbox-03.orgscheckbox.orgscheckreturn(name='sample-checkbox-03', value='ORGID002', type='checkbox')
                                                                 |  农业银行
                                                             label.col-sm-6.label_check(for='checkbox-05')
-                                                                input#checkbox-05.orgscheckbox(name='sample-checkbox-04', value='org3', type='checkbox')
+                                                                input#checkbox-05.orgscheckbox.orgscheckreturn(name='sample-checkbox-04', value='ORGID003', type='checkbox')
                                                                 |  招商银行
                                                             label.col-sm-6.label_check(for='checkbox-06')
-                                                                input#checkbox-06.orgscheckbox(name='sample-checkbox-04', value='org4', type='checkbox')
+                                                                input#checkbox-06.orgscheckbox.orgscheckreturn(name='sample-checkbox-04', value='ORGID004', type='checkbox')
                                                                 |  兴业银行
                                                             label.col-sm-6.label_check(for='checkbox-07')
-                                                                input#checkbox-07.orgscheckbox(name='sample-checkbox-04', value='org5', type='checkbox')
+                                                                input#checkbox-07.orgscheckbox.orgscheckreturn(name='sample-checkbox-04', value='ORGID005', type='checkbox')
                                                                 |  工商银行
                                                             label.col-sm-6.label_check(for='checkbox-08')
-                                                                input#checkbox-08.orgscheckbox(name='sample-checkbox-04', value='org6', type='checkbox')
+                                                                input#checkbox-08.orgscheckbox.orgscheckreturn(name='sample-checkbox-04', value='ORGID006', type='checkbox')
                                                                 |  邮政银行
 
                                             .modal-footer
@@ -104,13 +104,19 @@ block content
     script.
             $(document).ready(function () {
                 $("#checkboxall").click(function () {
-                    if($("#checkboxall").attr("checked")===undefined){
-                        $("input.orgscheckbox").attr("checked","true");
-                    }else{
+                    if ($("#checkboxall").attr("checked") === undefined) {
+                        $("input.orgscheckbox").attr("checked", "");
+                    } else {
                         console.log("come to removeAttr");
                         $("input.orgscheckbox").removeAttr("checked");
                     }
                 });
 
-                $()
+                $('#checkboxsave').click(function () {
+                   $('input.orgvalues').val($('input[type=checkbox].orgscheckreturn:checked').map(function () {
+                         return this.value
+                        }).get().join(","));
+
+                    $('#selectOrgsModal').modal('toggle');
+                });
             });

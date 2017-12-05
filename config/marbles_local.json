@@ -3,7 +3,7 @@
     "use_events": true,
     "keep_alive_secs": 120,
     "company": "United Marbles",
-    "my_organization_id":"ORGID000001",
+    "my_organization_id":"ORGID001",
     "port": 3001,
     "mysql":{
         "host":"127.0.0.1",

@@ -50,6 +50,7 @@ var sqlServices=require(__dirname+'/db/sqlutils.js')(configer,logger);
 
 app.sqlServices=sqlServices;
 app.logger=logger;
+app.configer=configer;
 
 //验证是否已经登录
 

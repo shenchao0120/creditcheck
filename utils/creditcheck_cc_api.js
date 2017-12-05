@@ -44,7 +44,7 @@ module.exports=function (enrollObj,g_options,fcw,logger) {
             channel_id: g_options.channel_id,
             chaincode_id: g_options.chaincode_id,
             chaincode_version: g_options.chaincode_version,
-            event_urls: g_options.event_urls,
+            event_url: g_options.event_url,
             endorsed_hook: options.endorsed_hook,
             ordered_hook: options.ordered_hook,
             cc_function: 'cusInfoRequest',

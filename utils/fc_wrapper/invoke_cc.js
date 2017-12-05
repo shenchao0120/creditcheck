@@ -8,7 +8,7 @@ module.exports = function (g_options, logger) {
 	var invoke_cc = {};
 
 	if (!g_options) g_options = {};
-	if (!g_options.block_delay) g_options.block_delay = 10000;
+	if (!g_options.block_delay) g_options.block_delay = 5000;
 
 	//-------------------------------------------------------------------
 	// Invoke Chaincode - aka write to the ledger
