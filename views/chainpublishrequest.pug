@@ -24,7 +24,7 @@ block content
                         header.panel-heading
                             | 查询客户要素
                         .panel-body
-                            form.form-horizontal(method='post' action='/chain/publishrequest')
+                            form.form-horizontal#submitrequestform
                                 .form-group
                                     label.col-sm-2.control-label 身份证号码:
                                     .col-sm-6
@@ -119,4 +119,24 @@ block content
 
                     $('#selectOrgsModal').modal('toggle');
                 });
+
+                $('#submitrequestform').submit(function () {
+                    if ($('#focusedInput').val()==''){
+                        alert("身份证号必须输入");
+                    }else {
+                        $.ajax({
+                            type: "POST",
+                            url: "/chain/publishrequest",
+                            async: false,
+                            data: $('#submitrequestform').serialize(),
+
+                            success: function (data) {
+                                alert("交易成功");
+                            },
+                            error: function () {
+                                alert("交易失敗");
+                            }
+                        });
+                    }
+                })
             });

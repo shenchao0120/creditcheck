@@ -33,10 +33,13 @@ router.post('/publishrequest', function(req, res, next) {
 
     req.app.cc_api.create_info_request(options,function (err,resp) {
         if(err!=null) {
-            res.write("<script>alert('提交失败:"+err.parsed+"');</script>");
+            res.writeHead(500, { 'Content-Type': 'text/plain;charset=utf-8' });
+            res.end("交易失敗");
         }
         else {
-            res.write("<script>alert('提交成功!');</script>");
+            res.writeHead(200, { 'Content-Type': 'text/plain;charset=utf-8' });
+            res.end("交易成功");
+
         }
     });
 
