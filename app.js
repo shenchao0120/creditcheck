@@ -7,6 +7,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var Cookies = require('cookies');                // cookies模块
 
+var utility=require(__dirname+'/utils/utility.js');
+
 
 var app = express();
 
@@ -220,9 +222,6 @@ setupWebSocket();
 setupChannelApis();
 
 
-
-
-
 // ============================================================================================================================
 // 												WebSocket Communication Setup
 // ============================================================================================================================
@@ -340,12 +339,16 @@ function setupChannelApis() {
                     app.channelinfo.previousBlockHash=resp.previousBlockHash
                 }
             });
-
             var cc_api=require(__dirname+'/utils/creditcheck_cc_api.js')(obj,g_option,fcw,logger);
-            cc_api.setupEventHub(app.wss,app.channelinfo);
+            var eventHook=require(__dirname+'/utils/event_hook.js')(configer,logger,sqlServices,cc_api);
+            cc_api.setupEventHub(app.wss,app.channelinfo,eventHook.blockEventHook,eventHook.chaincodeEventHook,sqlServices);
             app.cc_api=cc_api;
         }else{
             logger.error("Error for enroll admin to channel!");
         }
     });
 }
+
+
+
+

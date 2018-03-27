@@ -1,12 +1,42 @@
 var express = require('express');
 var router = express.Router();
 var crypto=require('crypto');
+var co=require('co');
 
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { username: req.userInfo.username ,low:req.app.channelinfo.low});
+    co(function* (){
+        var result = yield [
+            req.app.sqlServices.getTxCount().then((obj)=>{
+                return obj;})
+                .catch((err)=>{
+                    console.log("getTxCount err:",err);
+                }),
+            req.app.sqlServices.getLocalCusCount().then((obj)=>{
+                return obj;})
+                .catch((err)=>{
+                    console.log("getLocalCusCount err:",err);
+                }),
+            req.app.sqlServices.getChainRequestCount().then((obj)=>{
+                return obj;})
+                .catch((err)=>{
+                    console.log("GetChainRequestCount err:",err);
+                })
+        ];
+        res.render('index', {
+            username: req.userInfo.username ,
+            low:req.app.channelinfo.low,
+            tx_num:result[0],
+            localcusnum:result[1],
+            chainrequest:result[2]
+        });
+    }).catch((err)=>{
+        console.log("Query cus count info err:",err);
+        res.render('index',{username: req.userInfo.username , low:req.app.channelinfo.low});
+    });
+
 });
 
 router.get('/login', function(req, res, next) {
@@ -43,7 +73,6 @@ router.post('/login', function(req, res, next) {
                             user_id: obj.user_id,
                             username: obj.user_loginName
                         }));
-
                         res.json({status:0,path:'/'}) ;
                     } else {
 

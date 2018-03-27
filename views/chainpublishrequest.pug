@@ -24,7 +24,7 @@ block content
                         header.panel-heading
                             | 查询客户要素
                         .panel-body
-                            form.form-horizontal#submitrequestform
+                            form.form-horizontal#submitrequestform(method="POST")
                                 .form-group
                                     label.col-sm-2.control-label 身份证号码:
                                     .col-sm-6
@@ -73,29 +73,29 @@ block content
                                                          .form-group
                                                             label.col-sm-6.label_check(for='checkbox-02')
                                                                 input#checkbox-02.orgscheckbox.orgscheckreturn(name='sample-checkbox-02', value='ORGID001', type='checkbox')
-                                                                |  建设银行
+                                                                |  渤海银行
                                                             label.col-sm-6.label_check(for='checkbox-03')
                                                                 input#checkbox-03.orgscheckbox.orgscheckreturn(name='sample-checkbox-03', value='ORGID002', type='checkbox')
-                                                                |  农业银行
+                                                                |  AA银行
                                                             label.col-sm-6.label_check(for='checkbox-05')
                                                                 input#checkbox-05.orgscheckbox.orgscheckreturn(name='sample-checkbox-04', value='ORGID003', type='checkbox')
-                                                                |  招商银行
+                                                                |  BB银行
                                                             label.col-sm-6.label_check(for='checkbox-06')
                                                                 input#checkbox-06.orgscheckbox.orgscheckreturn(name='sample-checkbox-04', value='ORGID004', type='checkbox')
-                                                                |  兴业银行
+                                                                |  CC银行
                                                             label.col-sm-6.label_check(for='checkbox-07')
                                                                 input#checkbox-07.orgscheckbox.orgscheckreturn(name='sample-checkbox-04', value='ORGID005', type='checkbox')
-                                                                |  工商银行
+                                                                |  DD银行
                                                             label.col-sm-6.label_check(for='checkbox-08')
                                                                 input#checkbox-08.orgscheckbox.orgscheckreturn(name='sample-checkbox-04', value='ORGID006', type='checkbox')
-                                                                |  邮政银行
+                                                                |  EE银行
 
                                             .modal-footer
                                                 .text-align-center
                                                     button#checkboxsave.btn.btn-primary(type='button') 保存
                                                     button.btn.btn-default(type='button', data-dismiss='modal') 关闭
 
-                                button.col-sm-2.col-sm-offset-5.btn.btn-info.text-align-center.green-bg(type="submit" ) 发布
+                                button#submitrequestbotton.btn-loading.col-sm-2.col-sm-offset-5.btn.btn-info.text-align-center.green-bg(type="button") 发布
 
 
 
@@ -120,21 +120,37 @@ block content
                     $('#selectOrgsModal').modal('toggle');
                 });
 
-                $('#submitrequestform').submit(function () {
+                $('#submitrequestbotton').click(function () {
                     if ($('#focusedInput').val()==''){
-                        alert("身份证号必须输入");
+                        layer.close(loadIndex);
+                        layer.alert("请输入身份证号！", {
+                            title: '错误信息',
+                            closeBtn: 0,
+                            anim: 6
+                        });
                     }else {
                         $.ajax({
                             type: "POST",
                             url: "/chain/publishrequest",
-                            async: false,
+                            async: true,
                             data: $('#submitrequestform').serialize(),
-
+                            dataType: "text",
                             success: function (data) {
-                                alert("交易成功");
+                                layer.close(loadIndex);
+                                var obj=JSON.parse(data);
+                                layer.alert("发布成功!<br>交易号："+obj.tx_id, {
+                                    title: '返回信息',
+                                    closeBtn: 0,
+                                    anim: 2
+                                });
                             },
                             error: function () {
-                                alert("交易失敗");
+                                layer.close(loadIndex);
+                                layer.alert("发布失败！", {
+                                    title: '错误信息 ' + err,
+                                    closeBtn: 0,
+                                    anim: 6
+                                });
                             }
                         });
                     }

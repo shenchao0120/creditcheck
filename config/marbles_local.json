@@ -10,5 +10,13 @@
         "database":"creditcheck",
         "username":"root",
         "passwd":"123456"
+    },
+    "orgs_list":{
+        "ORGID001":"渤海银行",
+        "ORGID002":"AA银行",
+        "ORGID003":"BB银行",
+        "ORGID004":"CC银行",
+        "ORGID005":"DD银行",
+        "ORGID006":"EE银行"
     }
 }

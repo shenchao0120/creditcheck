@@ -9,62 +9,54 @@ block content
                 .col-lg-12
                     h3.page-header
                         i.fa.fa-laptop
-                        |  行内客户信息
+                        |  已接收请求查询
                     ol.breadcrumb
                         li
                             i.fa.fa-home
                             a(href='index.html') Home
                         li
                             i.fa.fa-laptop
-                            | 行内客户信息
+                            | 已接收请求查询
             .row
                 .col-lg-12
                     section.panel
                         header.panel-heading
-                            | 客户信息列表
+                            | 请求信息列表
                         table.table.table-striped.table-advance.table-hover
                             thead
                                     tr
+                                        th.col-sm-2.col-lg-2.col-md-2
+                                            i.icon_tags_alt
+                                            |  交易号
                                         th
-                                            i.icon_profile
-                                            |  姓名
+                                            |  请求机构
                                         th
                                             i.icon_id
-                                            |  身份证
+                                            |  身份证号
                                         th
-                                            i.icon_calendar
-                                            |  出生日期
+                                            |  查询时间
                                         th
-                                            i.icon_mail_alt
-                                            |  Email
+                                            |  查询期限
                                         th
-                                            i.icon_pin_alt
-                                            |  籍贯
+                                            |  请求类型
+                                        th.col-sm-1.col-lg-2.col-md-2
+                                            |  查询机构
                                         th
-                                            i.icon_mobile
-                                            |  电话
-                                        th
-                                            i.icon_cogs
-                                            |  动作
+                                            |  是否响应
                             tbody
                                 each obj in objs
                                     tr
-                                        td(hidden='true') #{obj.cus_id}
-                                        td #{obj.cus_name}
+                                        td(style="word-break:break-all; word-wrap:break-word;" ) #{obj.tx_id}
+                                        td #{obj.from_orgID}
                                         td #{obj.cus_id_num}
-                                        td #{obj.birthday}
-                                        td #{obj.email}
-                                        td #{obj.city}
-                                        td #{obj.phone_num}
-                                        - var str='/inner/cusinfo/detail?cus_id='+ obj.cus_id
-                                        td
-                                            .btn-group
-                                                a.btn.btn-primary(href=str)
-                                                    i.icon_plus_alt2
-                                                //a.btn.btn-success(href='#')
-                                                    i.icon_check_alt2
-                                                //a.btn.btn-danger(href='#')
-                                                    i.icon_close_alt2
+                                        td #{obj.req_dt}
+                                        td #{obj.time_line}
+                                        td #{obj.req_type}
+                                        td(style="word-break:break-all; word-wrap:break-word;" ) #{obj.req_orgIDs}
+                                        - var replied='否'
+                                        - if(obj.replied=='Y')
+                                            - replied='是'
+                                        td #{replied}
 
                 section.panel
                     .panel-body
@@ -74,11 +66,11 @@ block content
                                     li
                                         a.disabled «
                                 - else
-                                    - var str='/inner/cusinfo?page='+(curPage-1)
+                                    - var str='/chain/queryreceiverequest?page='+(curPage-1)
                                      li
                                          a(href=str) «
                                 - for(var i=1; i <= pageNum; i++)
-                                    - var str='/inner/cusinfo?page='+i;
+                                    - var str='/chain/queryreceiverequest?page='+i;
                                     - if (i==curPage)
                                         li
                                             a.selected(href=str) #{i}
@@ -89,7 +81,7 @@ block content
                                     li
                                         a.disabled »
                                 - else
-                                     - var str='/inner/cusinfo?page='+(parseInt(curPage)+1)
+                                     - var str='/chain/queryreceiverequest?page='+(parseInt(curPage)+1)
                                         li
                                            a(href=str) »
 

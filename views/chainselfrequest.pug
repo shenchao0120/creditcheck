@@ -9,58 +9,54 @@ block content
                 .col-lg-12
                     h3.page-header
                         i.fa.fa-laptop
-                        |  行内客户信息
+                        |  已发布请求查询
                     ol.breadcrumb
                         li
                             i.fa.fa-home
                             a(href='index.html') Home
                         li
                             i.fa.fa-laptop
-                            | 行内客户信息
+                            | 已发布请求查询
             .row
                 .col-lg-12
                     section.panel
                         header.panel-heading
-                            | 客户信息列表
+                            | 请求信息列表
                         table.table.table-striped.table-advance.table-hover
                             thead
                                     tr
-                                        th
-                                            i.icon_profile
-                                            |  姓名
+                                        th.col-sm-3.col-lg-3.col-md-3
+                                            i.icon_tags_alt
+                                            |  交易号
                                         th
                                             i.icon_id
                                             |  身份证
                                         th
                                             i.icon_calendar
-                                            |  出生日期
+                                            |  查询日期
                                         th
-                                            i.icon_mail_alt
-                                            |  Email
+                                            |  查询类型
                                         th
-                                            i.icon_pin_alt
-                                            |  籍贯
-                                        th
-                                            i.icon_mobile
-                                            |  电话
+                                            |  查询期限
+                                        th.col-sm-3.col-lg-3.col-md-3
+                                            |  查询机构
                                         th
                                             i.icon_cogs
-                                            |  动作
+                                            |  操作
                             tbody
                                 each obj in objs
                                     tr
-                                        td(hidden='true') #{obj.cus_id}
-                                        td #{obj.cus_name}
+                                        td(style="word-break:break-all; word-wrap:break-word;" ) #{obj.tx_id}
                                         td #{obj.cus_id_num}
-                                        td #{obj.birthday}
-                                        td #{obj.email}
-                                        td #{obj.city}
-                                        td #{obj.phone_num}
-                                        - var str='/inner/cusinfo/detail?cus_id='+ obj.cus_id
+                                        td #{obj.req_dt}
+                                        td #{obj.req_type}
+                                        td #{obj.time_line}
+                                        td(style="word-break:break-all; word-wrap:break-word;" ) #{obj.req_orgIDs}
+                                        - var str='/chain/respondinfo?tx_id='+ obj.tx_id+'&cus_id_num='+obj.cus_id_num+'&req_dt='+obj.req_dt
                                         td
                                             .btn-group
                                                 a.btn.btn-primary(href=str)
-                                                    i.icon_plus_alt2
+                                                    i.icon_info_alt
                                                 //a.btn.btn-success(href='#')
                                                     i.icon_check_alt2
                                                 //a.btn.btn-danger(href='#')
@@ -74,11 +70,11 @@ block content
                                     li
                                         a.disabled «
                                 - else
-                                    - var str='/inner/cusinfo?page='+(curPage-1)
+                                    - var str='/chain/queryselfrequest?page='+(curPage-1)
                                      li
                                          a(href=str) «
                                 - for(var i=1; i <= pageNum; i++)
-                                    - var str='/inner/cusinfo?page='+i;
+                                    - var str='/chain/queryselfrequest?page='+i;
                                     - if (i==curPage)
                                         li
                                             a.selected(href=str) #{i}
@@ -89,7 +85,7 @@ block content
                                     li
                                         a.disabled »
                                 - else
-                                     - var str='/inner/cusinfo?page='+(parseInt(curPage)+1)
+                                     - var str='/chain/queryselfrequest?page='+(parseInt(curPage)+1)
                                         li
                                            a(href=str) »
 

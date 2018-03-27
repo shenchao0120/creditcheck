@@ -103,7 +103,7 @@ module.exports = function (g_options, logger) {
 							} else {
 								if (cb && !cbCalled) {
 									cbCalled = true;
-									return cb(null);					//all good, pass it back
+									return cb(null,{tx_id:tx});					//all good, pass it back
 								}
 								else return;
 							}
@@ -120,7 +120,7 @@ module.exports = function (g_options, logger) {
 					// ------- [B] Wait xxxx ms for Block  ------- // option B
 				} else {
 					setTimeout(function () {
-						if (cb) return cb(null);
+						if (cb) return cb(null,{tx_id:request.txId.toString()});
 						else return;
 					}, g_options.block_delay + 2000);
 				}

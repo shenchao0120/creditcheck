@@ -374,6 +374,17 @@ module.exports = function (config_filename, logger) {
         return null;
     };
 
+    // get the chaincode id on network
+    loader.getChaincodeEventName = function () {
+        var channel = loader.getChannelId();
+        if (channel && loader.creds.channels[channel] && loader.creds.channels[channel].eventName) {
+            var eventName = loader.creds.channels[channel].eventName;
+            return eventName;
+        }
+        logger.warn('No eventName  found in credentials file... might be okay if we haven\'t instantiated marbles yet');
+        return null;
+    };
+
     // get the chaincode version on network
     loader.getChaincodeVersion = function () {
         var channel = loader.getChannelId();

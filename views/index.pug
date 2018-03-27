@@ -29,26 +29,35 @@ block content
               .col-lg-3.col-md-3.col-sm-12.col-xs-12
                 .info-box.blue-bg#blockTxNum
                   i.fa.fa-cloud-download
-                  .count 0
-                  .title 交易总数
+                  .count #{tx_num}
+                  .title 链上交易数
                 // /.info-box
               // /.col
               .col-lg-3.col-md-3.col-sm-12.col-xs-12
                 .info-box.brown-bg
                   i.fa.fa-shopping-cart
-                  .count 0
-                  .title 客户总数
+                  .count #{localcusnum}
+                  .title 本地客户数
                 // /.info-box
               // /.col
               .col-lg-3.col-md-3.col-sm-12.col-xs-12
-                .info-box.dark-bg
-                  i.fa.fa-thumbs-o-up
-                  .count 0
-                  .title 机构总数
+                .info-box.yellow-bg
+                  i.fa.fa-arrow-circle-up
+                  .count #{chainrequest}
+                  .title 链上请求总数
                 // /.info-box
               // /.col
             // overview start
         // main content end
+
+        script.
+            $(document).ready(function () {
+                $("li#mainpageli").attr("class", "active");
+                $(".sidebar-menu li.sub-menu").mouseover(function(){
+                    $("li#mainpageli").removeAttr("class", "active");
+                });
+
+            });
 
 
 

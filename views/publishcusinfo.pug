@@ -1,0 +1,116 @@
+extends ./template/layout.pug
+
+block content
+    // main content start
+    section#main-content
+        section.wrapper
+            // overview start
+            .row
+                .col-lg-12
+                    h3.page-header
+                        i.fa.fa-laptop
+                        |  发布链上公共信息
+                    ol.breadcrumb
+                        li
+                            i.fa.fa-home
+                            a(href='index.html') Home
+                        li
+                            i.fa.fa-laptop
+                            | 发布客户信息
+            .row
+                .col-lg-12
+                    section.panel
+                        header.panel-heading
+                                label.col-sm-2.col-md-2.col-lg-2
+                                    | 客户证件号:
+                                form.navbar-form.col-sm-6
+                                        input#searchcusidnum.form-control(placeholder='查询', type='text' name='searchinput')
+                                        button#searchcusidnumbutton.btn.btn-default.btn-primary.btn-loading(type='button' style='margin-left:20px;') 查询
+                                        button#publishcusinfobutton.btn.btn-default.btn-loading.btn-primary.disabled(type='button' style='margin-left:20px;') 发布至链上
+                                br
+                                br
+                    section.panel
+                        .panel-body
+                            #searchresultwrap
+
+    script.
+        $(document).ready(function () {
+            var g_cus_id_num;
+
+
+            $('#searchcusidnumbutton').click(function () {
+                var cus_id_num=$('#searchcusidnum').val();
+                if(cus_id_num.length==0 || isNaN(parseInt(cus_id_num,10))==true){
+                    layer.close(loadIndex);
+                    layer.alert("证件号不合法", {
+                        title: '错误信息',
+                        closeBtn: 0,
+                        anim: 6
+                    });
+                }else {
+                    $.ajax({
+                        type: "GET",
+                        url: "/chain/publishcusinfo/searchlocal",
+                        async: true,
+                        data: {
+                            "cus_id_num": cus_id_num
+                        },
+                        success: function (data) {
+                            $('#searchresultwrap').html(data);
+                            g_cus_id_num=cus_id_num;
+                            $('#publishcusinfobutton').removeClass('disabled');
+                            layer.close(loadIndex);
+                                                   },
+                        error: function () {
+                            $('#searchresultwrap').html('');
+                            $('#publishcusinfobutton').addClass('disabled');
+                            layer.close(loadIndex);
+                            layer.alert("该证件号不存在",{
+                                title:'错误信息',
+                                closeBtn: 0,
+                                anim: 6
+                            });
+                        }
+                    });
+                }
+            });
+
+            $('#publishcusinfobutton').click(function () {
+                var cus_id_num = $('#searchcusidnum').val();
+                if (cus_id_num!=g_cus_id_num) {
+                    layer.alert("请先查询", {
+                        title: '错误信息',
+                        closeBtn: 0,
+                        anim: 6
+                    });
+                    layer.close(loadIndex);
+                } else {
+                    $.ajax({
+                        type: "POST",
+                        url: "/chain/publishcusinfo",
+                        async: true,
+                        data: {
+                            "cus_id_num": cus_id_num
+                        },
+                        success: function (data) {
+                            layer.close(loadIndex);
+                            layer.alert("发布成功！", {
+                                title: '返回信息',
+                                closeBtn: 0,
+                                anim: 1
+                            });
+                        },
+                        error: function (err) {
+                            layer.close(loadIndex);
+                            layer.alert("发布失败！", {
+                                title: '错误信息 '+err,
+                                closeBtn: 0,
+                                anim: 6
+                            });
+                        }
+                    });
+
+                }
+
+            });
+        });

@@ -25,11 +25,12 @@
    */
   "es3": true,
   "es5": true,
+  "es6": true,
   "esnext": true,
   /**
    * 选择ES版本，3,5,6
    */
-  "esversion": 5,
+  "esversion": 6,
   /**
    * for-in 语句是否要求过滤原型链上的对象
    * 添加 obj.hasOwnProperty(prop)

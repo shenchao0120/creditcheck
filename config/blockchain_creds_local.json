@@ -26,6 +26,7 @@
 			"chaincodes": {
 				"creditcheck": "v0"
 			},
+			"eventName":"cusRequest",
 			"x-blockDelay": 10000
 		}
 	},

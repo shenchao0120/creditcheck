@@ -32,7 +32,12 @@ module.exports = function (block_config_File,config_filename, logger) {
 
     loader.getMyOrganizationID=function () {
         return getConfigFileField('my_organization_id');
+    };
+    loader.getOrgChsName=function (org_id) {
+        return getConfigFileField('orgs_list')[org_id];
     }
+
+
 
     // get the marble's server port number
     loader.getMarblesPort = function () {

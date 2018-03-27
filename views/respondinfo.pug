@@ -1,0 +1,134 @@
+extends ./template/layout.pug
+
+block content
+    // main content start
+    section#main-content
+        section.wrapper
+            // overview start
+            .row
+                .col-lg-12
+                    h3.page-header
+                        i.fa.fa-laptop
+                        |  链上应答信息
+                    ol.breadcrumb
+                        li
+                            i.fa.fa-home
+                            a(href='index.html') Home
+                        li
+                            i.fa.fa-laptop
+                            | 链上应答信息
+            .row
+                .col-lg-12
+                    section.panel
+                        header.panel-heading
+                            p
+                                | 请求交易号：#{tx_id}
+                            p
+                                | 身份证号： #{cus_id_num}
+                            p
+                                | 请求日期： #{req_dt}
+                        table.table.table-striped.table-advance.table-hover
+                            thead
+                                tr
+                                    th.col-sm-3.col-lg-3.col-md-3
+                                        i.icon_tags_alt
+                                        |  机构名称
+                                    th
+                                        i.icon_id
+                                        |  区块号
+                                    th
+                                        i.icon_calendar
+                                        |  应答日期
+                                    th
+                                        |  加密
+                                    th
+                                        |  时间戳
+                                    th
+                                        |  详细
+
+                            tbody
+                                - var count=0;
+                                each obj in objs
+                                    - count++;
+                                    tr
+                                        td(style="word-break:break-all; word-wrap:break-word;" ) #{obj.from_orgName}
+                                        td #{obj.block_no}
+                                        td #{obj.rsp_dt}
+                                        td #{obj.is_crypto}
+                                        td #{obj.stmp}
+                                        td.infoDetailRow
+                                            .row_no(hidden='true')  #{count}
+                                            .from_orgID(hidden='true')  #{obj.from_orgID}
+                                            .btn-group
+                                                a.infoDetailButton.btn.btn-primary(type='button')
+                                                    i.icon_info_alt
+                                            .respondInfoDetail.modal.fade(tabindex='-1', role='dialog', aria-labelledby='infoDetailLabel')
+                                                .modal-dialog.modal-lg(role='document' )
+                                                    .modal-content
+                                                        .modal-header
+                                                            button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                                                span(aria-hidden='true') ×
+                                                            h4.infoDetailLabel.modal-title 详细信息
+                                                        .modal-body
+
+                                                        .modal-footer
+                                                            .text-align-center
+                                                                //button#checkboxsave.btn.btn-primary(type='button') 保存
+                                                                button.btn.btn-default(type='button', data-dismiss='modal') 关闭
+
+
+
+
+    script.
+        $('.infoDetailButton').click(function () {
+            var $pare=$(this).parent().parent(".infoDetailRow");
+            var from_orgID=$pare.find('.from_orgID').text().trim();
+            $.ajax({
+                type: "GET",
+                url: "/chain/respondinfo/detail",
+                async: false,
+                data:{
+                    "tx_id":"#{tx_id}",
+                    "from_orgID":from_orgID
+                },
+
+                success: function (data) {
+                    console.log(data);
+                    $pare.find('.modal-body').html(data);
+                    $pare.find('.respondInfoDetail').modal('toggle');
+                },
+                error: function () {
+                    alert("查询失败");
+                }
+            });
+
+            //$('.respondInfoDetail').attr('row_id',row_id).modal('toggle');
+        });
+
+
+        $('.infoDetailRow').each(function (index,element) {
+           var str =$(this).find('.row_no').text().trim();
+            $(this).find('.infoDetailButton').attr('row_id',str);
+            $(this).find('.respondInfoDetail').attr('row_id',str);
+        })
+
+
+        $('#submitrequestform').submit(function () {
+            if ($('#focusedInput').val() == '') {
+                alert("身份证号必须输入");
+            } else {
+                $.ajax({
+                    type: "POST",
+                    url: "/chain/publishrequest",
+                    async: false,
+                    data: $('#submitrequestform').serialize(),
+
+                    success: function (data) {
+                        alert("交易成功");
+                    },
+                    error: function () {
+                        alert("交易失敗");
+                    }
+                });
+            }
+        })

@@ -179,7 +179,7 @@ module.exports=function (enrollObj,g_options,fcw,logger) {
         });
     };
 
-    creditcheck_cc.setupEventHub=function (websocket,channelinfo) {
+    creditcheck_cc.setupEventHub=function (websocket,channelinfo,blockHook,chaincodeHook,sqlServices) {
         logger.debug('[cc_api] setupEventHub');
         var eventHub;
         var client = enrollObj.client;
@@ -202,7 +202,13 @@ module.exports=function (enrollObj,g_options,fcw,logger) {
                 logger.info("[cc_api] Receive block event.")
                 var block_height = block.header.number;
                 var tx_num = block.data.data.length;
-                websocket.broadcastMsg('block','new_block',{block_height:block_height,tx_num:tx_num});
+                sqlServices.getTxCount()
+                    .then((tx_num)=>{
+                        websocket.broadcastMsg('block','new_block',{block_height:block_height,tx_num:tx_num});
+                    })
+                    .catch(function (err) {
+                        logger.info('Error or no record');
+                    });
                 channelinfo.low = block_height;
                 channelinfo.currentBlockHash = block.header.data_hash;
                 channelinfo.previousBlockHash = block.header.previous_hash;
@@ -212,27 +218,36 @@ module.exports=function (enrollObj,g_options,fcw,logger) {
                 var channel_id = header.channel_header.channel_id;
                 if (g_options.channel_id !== channel_id) return;
                 */
+                if(blockHook!=null){
+                    blockHook(null,block);
+                };
             },
             (err) => {
                 logger.error("[cc_api] Block event error.")
+                if(blockHook!=null){
+                    blockHook(err,null);
+                };
             }
         );
         eventHub.registerChaincodeEvent(g_options.chaincode_id, CusRequestIndex,
             (eventObj) => {
-                var payload = eventObj.payload;
-                logger.info("[cc_api] Chaincode event with payload:",payload);
+                if(chaincodeHook!=null){
+                    logger.info("[cc_api] Receive chaincode event.");
+                    chaincodeHook(null,eventObj);
+                };
             },
             (err) => {
                 logger.error("[cc_api] Chaincode event error.");
+                if(chaincodeHook!=null) {
+                    chaincodeHook(err, null);
+                }
             });
         creditcheck_cc.eventHub=eventHub;
     };
 
     creditcheck_cc.closeEventHub=function () {
         creditcheck_cc.eventHub.disconnect();
-    }
-
-
+    };
 
     return  creditcheck_cc;
 }

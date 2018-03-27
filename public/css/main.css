@@ -22,7 +22,7 @@ a:link,a:visited,a:hover,a:active { color: #00CED1;}
 .header .banner {
   width: 100%;
   height: 200px;
-  background: url('../imgs/bg.jpg') no-repeat center center;
+  background: url('../imgs/cbhbbackground.jpg') no-repeat center center;
   background-size: cover;
   filter: blur(2px);
   overflow: hidden;
